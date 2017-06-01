@@ -1,0 +1,9 @@
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\bin\Debug\Lab2.exe.config
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.frmMain.resources
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.csproj.GenerateResource.Cache
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\bin\Debug\Lab2.exe
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\bin\Debug\Lab2.pdb
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.exe
+F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.pdb
