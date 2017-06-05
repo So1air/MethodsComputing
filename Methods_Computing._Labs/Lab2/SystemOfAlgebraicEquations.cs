@@ -115,7 +115,7 @@ namespace Lab2
                     tmp_summ = 0;
                     for (int j = 0; j < i; j++)
                         tmp_summ += S.GetElement(i, j) * S.GetElement(k, j);
-                    S.SetElement((_a.GetElement(i, k) - tmp_summ), k, i);
+                    S.SetElement((_a.GetElement(k, i) - tmp_summ) / S.GetElement(i, i), k, i);
                 }
             }
 
@@ -134,7 +134,7 @@ namespace Lab2
             for (int i = n - 1; i >= 0; i--)
             {
                 tmp_summ = 0;
-                for (int j = n-1; j < i; j--)
+                for (int j = n - 1; j > i; j--)
                     tmp_summ += S.GetElement(i, j) * x[j];
                 x[i] = (y[i] - tmp_summ) / S.GetElement(i, i);
             }
@@ -164,7 +164,7 @@ namespace Lab2
 
         double res_final(int n, ref Vector result, ref double[] e, ref double[] m)
         { 
-            return result[result.Length - 1] = (_f[n] - _a.GetElement(n, n - 1) * e[n - 1]) / (_a.GetElement(n, n) - _a.GetElement(n, n - 1) * m[n - 1]); 
+            return result[n] = (_f[n] - _a.GetElement(n, n - 1) * e[n - 1]) / (_a.GetElement(n, n) - _a.GetElement(n, n - 1) * m[n - 1]); 
         }
 
         double res(int i, int n, ref Vector result, ref double[] e, ref double[] m) 
@@ -172,7 +172,7 @@ namespace Lab2
             return (result[i] = (i == n) ?
                                 res_final(n, ref result, ref e, ref m) :
                                 (e[i] = (_f[i] - _a.GetElement(i, i - 1) * e[i - 1]) / (_a.GetElement(i, i) - _a.GetElement(i, i - 1) * m[i - 1])) 
-                                - (m[i] = _a.GetElement(i - 1, i) / (_a.GetElement(i, i) - _a.GetElement(i, i - 1) * m[i - 1])) * res(i + 1, n, ref result, ref e, ref m));
+                                - (m[i] = _a.GetElement(i, i + 1) / (_a.GetElement(i, i) - _a.GetElement(i, i - 1) * m[i - 1])) * res(i + 1, n, ref result, ref e, ref m));
         }    
 
         private Vector MethodOfSuccessiveIteration()
@@ -181,16 +181,10 @@ namespace Lab2
                 if (this._a.ValueOfDeterminant != 0)
                 {
                     Vector x;
+
                     int n = this._f.Length;
-
                     Vector g = this._f.Copy();
-                    //for (int i = 0; i < n; i++)
-                    //    g[i] = _f[i] / _a.GetElement(i, i);
                     Matrix2D B = this._a.Copy();
-
-                    //short[] permutation = new short[_a.ColCount];
-                    //for (short ord_num = 0; ord_num < permutation.Length; permutation[ord_num] = ord_num++)
-                    //    ;
                     {
                         int ind_swapRow;
                         double tmp;

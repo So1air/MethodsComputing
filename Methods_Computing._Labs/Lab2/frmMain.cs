@@ -42,7 +42,7 @@ namespace Lab2
             _SLAEs.Add("Завдання 2.3 (Варіант 5)",
                 SystemOfLinearAlgebraicEquations.CreateSystem(
                     Matrix2D.CreateMatrix(new double[5, 5]{ { 8,  4,   0,  0,  0},
-                                                            {-5, 22,   8,   0,  0}, 
+                                                            {-5, 22,   8,  0,  0}, 
                                                             { 0, -5, -11,  1,  0},
                                                             { 0,  0,   6, 20, -5},
                                                             { 0,  0,   0,  1,  7} }),
@@ -364,13 +364,13 @@ namespace Lab2
                 resultSolution = _currSLAE.GetSolution(SystemOfLinearAlgebraicEquations.MethodsForSolution.SeidelMethod);
 
             pnl_InfoAboutSolution.Visible = true;
+            ltB_InfoAboutSolution.Items.Clear();
             if (resultSolution == null)            
-                ltB_InfoAboutSolution.Text = "Задана система не має розв'язку.";
+                ltB_InfoAboutSolution.Items.Add("Задана система не має розв'язку.");
             else
             {
                 if (!double.IsNaN(resultSolution[0]))
                 {
-                    ltB_InfoAboutSolution.Items.Clear();
                     for (int i = 0; i < resultSolution.Length; i++)
                         ltB_InfoAboutSolution.Items.Add("x" + NumberToLowIndex(i) + " = " + resultSolution[i] + ";");
 
@@ -379,7 +379,7 @@ namespace Lab2
                         ltB_InfoAboutSolution.Items[i] += "     θ" + NumberToLowIndex(i) + " = " + teta[i] + ";";
                 }
                 else
-                    ltB_InfoAboutSolution.Text = "Даним методом не вдається розв'язати задану систему.";
+                    ltB_InfoAboutSolution.Items.Add("Даним методом не вдається розв'язати задану систему.");
             }            
         }
 
@@ -398,15 +398,6 @@ namespace Lab2
                 default:
                     throw new NotImplementedException();
             }
-        }
-
-        private void txB_NameNewSystem_Leave(object sender, EventArgs e)
-        {
-            //if ((txB_NameNewSystem.Text == "") || _SLAEs.ContainsKey(txB_NameNewSystem.Text))
-            //{
-            //    MessageBox.Show("Введіть унікальний ідентифікатор нової системи.", "Недопустимий ідентифікатор");
-            //    txB_NameNewSystem.Focus();
-            //}
         }
     }
 }
