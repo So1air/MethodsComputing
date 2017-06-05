@@ -7,3 +7,12 @@ F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Метод�
 F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\bin\Debug\Lab2.pdb
 F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.exe
 F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Методи обчислень(другий семестр)\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.pdb
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\bin\Debug\Lab2.exe.config
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.exe
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.pdb
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\bin\Debug\Lab2.exe
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\bin\Debug\Lab2.pdb
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.frmMain.resources
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.Properties.Resources.resources
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab2\obj\Debug\Lab2.csproj.GenerateResource.Cache

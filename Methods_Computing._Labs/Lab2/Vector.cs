@@ -49,27 +49,109 @@ namespace Lab2
             return result;
         }
 
-        public static double operator *(Vector v1, Vector v2)
+        public static double operator *(Vector left_v, Vector right_v)
         {
             double result = 0;
-            for (int i = 0; i < v1.Length; i++)
-                result += v1._vectorElements[i] * v2._vectorElements[i];
-
+            if (left_v.Length == right_v.Length)
+                for (int i = 0; i < left_v.Length; i++)
+                    result += left_v._vectorElements[i] * right_v._vectorElements[i];
+            else
+                result = double.NaN;
             return result;
         }
 
-        public static Vector operator +(Vector v1, Vector v2)
+        public static Vector operator +(Vector left_v, Vector right_v)
         {
-            Vector result = new Vector(v1.Length);
-            for (int i = 0; i < result.Length; i++)
-                result._vectorElements[i] = v1._vectorElements[i] + v2._vectorElements[i];
-            
+            Vector result = new Vector(left_v.Length);
+            if (left_v.Length == right_v.Length)
+                for (int i = 0; i < result.Length; i++)
+                    result._vectorElements[i] = left_v._vectorElements[i] + right_v._vectorElements[i];
+            else
+                result = null;
             return result;
+        }
+
+        public static Vector operator -(Vector left_v, Vector right_v)
+        {
+            //return left_v + (-right_v);
+            Vector result = new Vector(left_v.Length);
+            if (left_v.Length == right_v.Length)
+                for (int i = 0; i < result.Length; i++)
+                    result._vectorElements[i] = left_v._vectorElements[i] - right_v._vectorElements[i];
+            else
+                result = null;
+            return result;
+        }
+
+        public static bool operator ==(Vector left_v, Vector right_v)
+        {
+            if (object.ReferenceEquals(left_v, null))
+                if (object.ReferenceEquals(null, right_v))
+                    return true;
+                else
+                    return false;
+            if (object.ReferenceEquals(null, right_v))
+                if (object.ReferenceEquals(left_v, null))
+                    return true;
+                else
+                    return false;
+            else
+                if (left_v.Length == right_v.Length) 
+                {
+                    for (int i = 0; i < left_v.Length; i++)
+                        if (left_v[i] != right_v[i])
+                            return false;
+                }
+                else
+                    return false; //лучше бросить специальное исключение    
+
+            return true;
+        }
+
+        public static bool operator !=(Vector left_v, Vector right_v)
+        {
+            return !(left_v == right_v);
+        }
+
+        public bool IsNullVector
+        {
+            get
+            {
+                for (int i = 0; i < this._vectorElements.Length; i++)
+                    if (this._vectorElements[i] != 0)
+                        return false;
+
+                return true;
+            }
+        }
+
+        public double Norm
+        {
+            get
+            {
+                double result = 0;
+                foreach (double x in _vectorElements)
+                    result += x * x;
+                return Math.Sqrt(result);
+            }
         }
 
         public Vector Copy()
         {
             return new Vector(this._vectorElements);
+        }
+
+        public bool CopyTo(Vector target)
+        {
+            if (target != null)
+                if (target.Length == this.Length)
+                {
+                    for (int i = 0; i < this.Length; i++)
+                        target._vectorElements[i] = this._vectorElements[i];
+                    return true;
+                }
+
+            return false;
         }
 
         public static Vector CreateVector(int length)

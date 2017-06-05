@@ -28,67 +28,282 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.grB_EditSLAEs = new System.Windows.Forms.GroupBox();
+            this.grB_AutoFormatWidthColumns = new System.Windows.Forms.GroupBox();
+            this.rdB_Fill = new System.Windows.Forms.RadioButton();
+            this.rdB_AllCells = new System.Windows.Forms.RadioButton();
+            this.txB_NameNewSystem = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.lbl_CountEquations = new System.Windows.Forms.Label();
+            this.lbl_CountVariables = new System.Windows.Forms.Label();
+            this.nUD_CountEquations = new System.Windows.Forms.NumericUpDown();
+            this.nUD_CountVariables = new System.Windows.Forms.NumericUpDown();
+            this.btnChangeSLAE = new System.Windows.Forms.Button();
+            this.cmB_ListSLAEs = new System.Windows.Forms.ComboBox();
+            this.btnAddSLAE = new System.Windows.Forms.Button();
+            this.dGV_ConstantTermsOfSLAE = new System.Windows.Forms.DataGridView();
             this.f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.dGV_MatrixOfSLAE = new System.Windows.Forms.DataGridView();
+            this.grB_SolvingSelectedSLAE = new System.Windows.Forms.GroupBox();
+            this.pnl_InfoAboutSolution = new System.Windows.Forms.Panel();
+            this.ltB_InfoAboutSolution = new System.Windows.Forms.ListBox();
+            this.lblInfoAboutSolution = new System.Windows.Forms.Label();
+            this.lblСorrectnessOfIterMethods = new System.Windows.Forms.Label();
+            this.txB_СorrectnessOfIterMethods = new System.Windows.Forms.TextBox();
+            this.btnSolveSLAE = new System.Windows.Forms.Button();
+            this.grB_MethodSolving = new System.Windows.Forms.GroupBox();
+            this.rdB_mSeidelMethod = new System.Windows.Forms.RadioButton();
+            this.rdB_mMethodOfSuccessiveIteration = new System.Windows.Forms.RadioButton();
+            this.rdB_mMethodOfGaussianElimination = new System.Windows.Forms.RadioButton();
+            this.rdB_mSquare_RootMethod = new System.Windows.Forms.RadioButton();
+            this.rdB_mThreediagonalMatrixAlgorithm = new System.Windows.Forms.RadioButton();
+            this.grB_EditSLAEs.SuspendLayout();
+            this.grB_AutoFormatWidthColumns.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_CountEquations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_CountVariables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_ConstantTermsOfSLAE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_MatrixOfSLAE)).BeginInit();
+            this.grB_SolvingSelectedSLAE.SuspendLayout();
+            this.pnl_InfoAboutSolution.SuspendLayout();
+            this.grB_MethodSolving.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // grB_EditSLAEs
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grB_EditSLAEs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.dataGridView2);
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(2, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1202, 394);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.grB_EditSLAEs.BackColor = System.Drawing.Color.GhostWhite;
+            this.grB_EditSLAEs.Controls.Add(this.grB_AutoFormatWidthColumns);
+            this.grB_EditSLAEs.Controls.Add(this.txB_NameNewSystem);
+            this.grB_EditSLAEs.Controls.Add(this.btnCancel);
+            this.grB_EditSLAEs.Controls.Add(this.btnAccept);
+            this.grB_EditSLAEs.Controls.Add(this.lbl_CountEquations);
+            this.grB_EditSLAEs.Controls.Add(this.lbl_CountVariables);
+            this.grB_EditSLAEs.Controls.Add(this.nUD_CountEquations);
+            this.grB_EditSLAEs.Controls.Add(this.nUD_CountVariables);
+            this.grB_EditSLAEs.Controls.Add(this.btnChangeSLAE);
+            this.grB_EditSLAEs.Controls.Add(this.cmB_ListSLAEs);
+            this.grB_EditSLAEs.Controls.Add(this.btnAddSLAE);
+            this.grB_EditSLAEs.Controls.Add(this.dGV_ConstantTermsOfSLAE);
+            this.grB_EditSLAEs.Controls.Add(this.dGV_MatrixOfSLAE);
+            this.grB_EditSLAEs.Location = new System.Drawing.Point(2, 4);
+            this.grB_EditSLAEs.Name = "grB_EditSLAEs";
+            this.grB_EditSLAEs.Size = new System.Drawing.Size(901, 359);
+            this.grB_EditSLAEs.TabIndex = 0;
+            this.grB_EditSLAEs.TabStop = false;
+            this.grB_EditSLAEs.Text = "Задання та змінення систем";
             // 
-            // button1
+            // grB_AutoFormatWidthColumns
             // 
-            this.button1.Location = new System.Drawing.Point(455, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(232, 24);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.grB_AutoFormatWidthColumns.Controls.Add(this.rdB_Fill);
+            this.grB_AutoFormatWidthColumns.Controls.Add(this.rdB_AllCells);
+            this.grB_AutoFormatWidthColumns.Location = new System.Drawing.Point(228, 47);
+            this.grB_AutoFormatWidthColumns.Name = "grB_AutoFormatWidthColumns";
+            this.grB_AutoFormatWidthColumns.Size = new System.Drawing.Size(221, 46);
+            this.grB_AutoFormatWidthColumns.TabIndex = 13;
+            this.grB_AutoFormatWidthColumns.TabStop = false;
+            this.grB_AutoFormatWidthColumns.Text = "Автоформат ширини стовпців";
             // 
-            // dataGridView2
+            // rdB_Fill
             // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rdB_Fill.AutoSize = true;
+            this.rdB_Fill.Checked = true;
+            this.rdB_Fill.Location = new System.Drawing.Point(93, 21);
+            this.rdB_Fill.Name = "rdB_Fill";
+            this.rdB_Fill.Size = new System.Drawing.Size(126, 17);
+            this.rdB_Fill.TabIndex = 1;
+            this.rdB_Fill.TabStop = true;
+            this.rdB_Fill.Text = "за шириною таблиці";
+            this.rdB_Fill.UseVisualStyleBackColor = true;
+            this.rdB_Fill.CheckedChanged += new System.EventHandler(this.rdB_AutoFormatWidthColumns_CheckedChanged);
+            // 
+            // rdB_AllCells
+            // 
+            this.rdB_AllCells.AutoSize = true;
+            this.rdB_AllCells.Location = new System.Drawing.Point(6, 21);
+            this.rdB_AllCells.Name = "rdB_AllCells";
+            this.rdB_AllCells.Size = new System.Drawing.Size(81, 17);
+            this.rdB_AllCells.TabIndex = 0;
+            this.rdB_AllCells.Text = "за вмістом";
+            this.rdB_AllCells.UseVisualStyleBackColor = true;
+            this.rdB_AllCells.CheckedChanged += new System.EventHandler(this.rdB_AutoFormatWidthColumns_CheckedChanged);
+            // 
+            // txB_NameNewSystem
+            // 
+            this.txB_NameNewSystem.Location = new System.Drawing.Point(10, 16);
+            this.txB_NameNewSystem.Name = "txB_NameNewSystem";
+            this.txB_NameNewSystem.Size = new System.Drawing.Size(439, 20);
+            this.txB_NameNewSystem.TabIndex = 12;
+            this.txB_NameNewSystem.Visible = false;
+            this.txB_NameNewSystem.WordWrap = false;
+            this.txB_NameNewSystem.Leave += new System.EventHandler(this.txB_NameNewSystem_Leave);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Location = new System.Drawing.Point(675, 29);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(220, 23);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Скасувати";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAccept.Location = new System.Drawing.Point(675, 8);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(220, 23);
+            this.btnAccept.TabIndex = 10;
+            this.btnAccept.Text = "Підтвердити";
+            this.btnAccept.UseVisualStyleBackColor = false;
+            this.btnAccept.Visible = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // lbl_CountEquations
+            // 
+            this.lbl_CountEquations.AutoSize = true;
+            this.lbl_CountEquations.Location = new System.Drawing.Point(11, 70);
+            this.lbl_CountEquations.Name = "lbl_CountEquations";
+            this.lbl_CountEquations.Size = new System.Drawing.Size(97, 13);
+            this.lbl_CountEquations.TabIndex = 9;
+            this.lbl_CountEquations.Text = "Кількість рівнянь:";
+            // 
+            // lbl_CountVariables
+            // 
+            this.lbl_CountVariables.AutoSize = true;
+            this.lbl_CountVariables.Location = new System.Drawing.Point(10, 49);
+            this.lbl_CountVariables.Name = "lbl_CountVariables";
+            this.lbl_CountVariables.Size = new System.Drawing.Size(98, 13);
+            this.lbl_CountVariables.TabIndex = 8;
+            this.lbl_CountVariables.Text = "Кількість змінних:";
+            // 
+            // nUD_CountEquations
+            // 
+            this.nUD_CountEquations.Enabled = false;
+            this.nUD_CountEquations.Location = new System.Drawing.Point(114, 73);
+            this.nUD_CountEquations.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.nUD_CountEquations.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nUD_CountEquations.Name = "nUD_CountEquations";
+            this.nUD_CountEquations.Size = new System.Drawing.Size(87, 20);
+            this.nUD_CountEquations.TabIndex = 7;
+            this.nUD_CountEquations.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nUD_CountEquations.ValueChanged += new System.EventHandler(this.nUD_CountEquations_ValueChanged);
+            // 
+            // nUD_CountVariables
+            // 
+            this.nUD_CountVariables.Enabled = false;
+            this.nUD_CountVariables.Location = new System.Drawing.Point(114, 47);
+            this.nUD_CountVariables.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.nUD_CountVariables.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nUD_CountVariables.Name = "nUD_CountVariables";
+            this.nUD_CountVariables.Size = new System.Drawing.Size(87, 20);
+            this.nUD_CountVariables.TabIndex = 6;
+            this.nUD_CountVariables.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nUD_CountVariables.ValueChanged += new System.EventHandler(this.nUD_CountVariables_ValueChanged);
+            // 
+            // btnChangeSLAE
+            // 
+            this.btnChangeSLAE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnChangeSLAE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChangeSLAE.Location = new System.Drawing.Point(455, 29);
+            this.btnChangeSLAE.Name = "btnChangeSLAE";
+            this.btnChangeSLAE.Size = new System.Drawing.Size(220, 23);
+            this.btnChangeSLAE.TabIndex = 5;
+            this.btnChangeSLAE.Text = "Змінити";
+            this.btnChangeSLAE.UseVisualStyleBackColor = false;
+            this.btnChangeSLAE.Click += new System.EventHandler(this.btnChangeSLAE_Click);
+            // 
+            // cmB_ListSLAEs
+            // 
+            this.cmB_ListSLAEs.FormattingEnabled = true;
+            this.cmB_ListSLAEs.Location = new System.Drawing.Point(10, 16);
+            this.cmB_ListSLAEs.Name = "cmB_ListSLAEs";
+            this.cmB_ListSLAEs.Size = new System.Drawing.Size(439, 21);
+            this.cmB_ListSLAEs.TabIndex = 4;
+            this.cmB_ListSLAEs.SelectedIndexChanged += new System.EventHandler(this.cmB_ListSLAEs_SelectedIndexChanged);
+            // 
+            // btnAddSLAE
+            // 
+            this.btnAddSLAE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAddSLAE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddSLAE.Location = new System.Drawing.Point(455, 8);
+            this.btnAddSLAE.Name = "btnAddSLAE";
+            this.btnAddSLAE.Size = new System.Drawing.Size(220, 23);
+            this.btnAddSLAE.TabIndex = 3;
+            this.btnAddSLAE.Text = "Додати";
+            this.btnAddSLAE.UseVisualStyleBackColor = false;
+            this.btnAddSLAE.Click += new System.EventHandler(this.btnAddSLAE_Click);
+            // 
+            // dGV_ConstantTermsOfSLAE
+            // 
+            this.dGV_ConstantTermsOfSLAE.AllowDrop = true;
+            this.dGV_ConstantTermsOfSLAE.AllowUserToAddRows = false;
+            this.dGV_ConstantTermsOfSLAE.AllowUserToDeleteRows = false;
+            this.dGV_ConstantTermsOfSLAE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.ColumnHeadersVisible = false;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dGV_ConstantTermsOfSLAE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGV_ConstantTermsOfSLAE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dGV_ConstantTermsOfSLAE.BackgroundColor = System.Drawing.Color.Ivory;
+            this.dGV_ConstantTermsOfSLAE.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dGV_ConstantTermsOfSLAE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dGV_ConstantTermsOfSLAE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.dGV_ConstantTermsOfSLAE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGV_ConstantTermsOfSLAE.ColumnHeadersVisible = false;
+            this.dGV_ConstantTermsOfSLAE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.f});
-            this.dataGridView2.Location = new System.Drawing.Point(1097, 99);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(99, 267);
-            this.dataGridView2.TabIndex = 2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGV_ConstantTermsOfSLAE.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dGV_ConstantTermsOfSLAE.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dGV_ConstantTermsOfSLAE.Location = new System.Drawing.Point(769, 99);
+            this.dGV_ConstantTermsOfSLAE.MultiSelect = false;
+            this.dGV_ConstantTermsOfSLAE.Name = "dGV_ConstantTermsOfSLAE";
+            this.dGV_ConstantTermsOfSLAE.RowHeadersVisible = false;
+            this.dGV_ConstantTermsOfSLAE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dGV_ConstantTermsOfSLAE.Size = new System.Drawing.Size(99, 245);
+            this.dGV_ConstantTermsOfSLAE.TabIndex = 2;
+            this.dGV_ConstantTermsOfSLAE.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_ConstantTermsOfSLAE_CellEnter);
+            this.dGV_ConstantTermsOfSLAE.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_ConstantTermsOfSLAE_CellValidated);
+            this.dGV_ConstantTermsOfSLAE.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dGV_Sync_Scroll);
             // 
             // f
             // 
@@ -96,118 +311,263 @@
             this.f.HeaderText = "f";
             this.f.Name = "f";
             // 
-            // dataGridView1
+            // dGV_MatrixOfSLAE
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dGV_MatrixOfSLAE.AllowDrop = true;
+            this.dGV_MatrixOfSLAE.AllowUserToAddRows = false;
+            this.dGV_MatrixOfSLAE.AllowUserToDeleteRows = false;
+            this.dGV_MatrixOfSLAE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SpringGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 99);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1054, 267);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
-            this.dataGridView1.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.dataGridView1_CellStateChanged);
-            this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValidated);
-            this.dataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
+            this.dGV_MatrixOfSLAE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGV_MatrixOfSLAE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dGV_MatrixOfSLAE.BackgroundColor = System.Drawing.Color.Ivory;
+            this.dGV_MatrixOfSLAE.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dGV_MatrixOfSLAE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dGV_MatrixOfSLAE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.dGV_MatrixOfSLAE.ColumnHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGV_MatrixOfSLAE.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dGV_MatrixOfSLAE.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dGV_MatrixOfSLAE.Location = new System.Drawing.Point(10, 99);
+            this.dGV_MatrixOfSLAE.MultiSelect = false;
+            this.dGV_MatrixOfSLAE.Name = "dGV_MatrixOfSLAE";
+            this.dGV_MatrixOfSLAE.RowHeadersVisible = false;
+            this.dGV_MatrixOfSLAE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dGV_MatrixOfSLAE.Size = new System.Drawing.Size(753, 245);
+            this.dGV_MatrixOfSLAE.TabIndex = 1;
+            this.dGV_MatrixOfSLAE.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_MatrixOfSLAE_CellEnter);
+            this.dGV_MatrixOfSLAE.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_MatrixOfSLAE_CellValidated);
+            this.dGV_MatrixOfSLAE.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dGV_Sync_Scroll);
             // 
-            // label1
+            // grB_SolvingSelectedSLAE
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grB_SolvingSelectedSLAE.BackColor = System.Drawing.Color.GhostWhite;
+            this.grB_SolvingSelectedSLAE.Controls.Add(this.pnl_InfoAboutSolution);
+            this.grB_SolvingSelectedSLAE.Controls.Add(this.lblСorrectnessOfIterMethods);
+            this.grB_SolvingSelectedSLAE.Controls.Add(this.txB_СorrectnessOfIterMethods);
+            this.grB_SolvingSelectedSLAE.Controls.Add(this.btnSolveSLAE);
+            this.grB_SolvingSelectedSLAE.Controls.Add(this.grB_MethodSolving);
+            this.grB_SolvingSelectedSLAE.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grB_SolvingSelectedSLAE.Location = new System.Drawing.Point(0, 369);
+            this.grB_SolvingSelectedSLAE.Name = "grB_SolvingSelectedSLAE";
+            this.grB_SolvingSelectedSLAE.Size = new System.Drawing.Size(907, 175);
+            this.grB_SolvingSelectedSLAE.TabIndex = 1;
+            this.grB_SolvingSelectedSLAE.TabStop = false;
+            this.grB_SolvingSelectedSLAE.Text = "Розв\'язання обраної системи";
+            // 
+            // pnl_InfoAboutSolution
+            // 
+            this.pnl_InfoAboutSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(10, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1186, 267);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.pnl_InfoAboutSolution.Controls.Add(this.ltB_InfoAboutSolution);
+            this.pnl_InfoAboutSolution.Controls.Add(this.lblInfoAboutSolution);
+            this.pnl_InfoAboutSolution.Location = new System.Drawing.Point(508, 16);
+            this.pnl_InfoAboutSolution.Name = "pnl_InfoAboutSolution";
+            this.pnl_InfoAboutSolution.Size = new System.Drawing.Size(389, 153);
+            this.pnl_InfoAboutSolution.TabIndex = 4;
+            this.pnl_InfoAboutSolution.Visible = false;
             // 
-            // comboBox1
+            // ltB_InfoAboutSolution
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(439, 21);
-            this.comboBox1.TabIndex = 4;
+            this.ltB_InfoAboutSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ltB_InfoAboutSolution.FormattingEnabled = true;
+            this.ltB_InfoAboutSolution.Location = new System.Drawing.Point(13, 26);
+            this.ltB_InfoAboutSolution.Name = "ltB_InfoAboutSolution";
+            this.ltB_InfoAboutSolution.Size = new System.Drawing.Size(363, 121);
+            this.ltB_InfoAboutSolution.TabIndex = 1;
             // 
-            // button2
+            // lblInfoAboutSolution
             // 
-            this.button2.Location = new System.Drawing.Point(693, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(224, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lblInfoAboutSolution.AutoSize = true;
+            this.lblInfoAboutSolution.Location = new System.Drawing.Point(10, 10);
+            this.lblInfoAboutSolution.Name = "lblInfoAboutSolution";
+            this.lblInfoAboutSolution.Size = new System.Drawing.Size(141, 13);
+            this.lblInfoAboutSolution.TabIndex = 0;
+            this.lblInfoAboutSolution.Text = "Інформація про розв\'язок:";
             // 
-            // numericUpDown1
+            // lblСorrectnessOfIterMethods
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(362, 43);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(87, 20);
-            this.numericUpDown1.TabIndex = 6;
+            this.lblСorrectnessOfIterMethods.AutoSize = true;
+            this.lblСorrectnessOfIterMethods.Location = new System.Drawing.Point(283, 32);
+            this.lblСorrectnessOfIterMethods.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lblСorrectnessOfIterMethods.Name = "lblСorrectnessOfIterMethods";
+            this.lblСorrectnessOfIterMethods.Size = new System.Drawing.Size(180, 26);
+            this.lblСorrectnessOfIterMethods.TabIndex = 3;
+            this.lblСorrectnessOfIterMethods.Text = "Точність розв\'язання ітераційним методом:";
+            this.lblСorrectnessOfIterMethods.Visible = false;
             // 
-            // numericUpDown2
+            // txB_СorrectnessOfIterMethods
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(362, 73);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(87, 20);
-            this.numericUpDown2.TabIndex = 7;
+            this.txB_СorrectnessOfIterMethods.Location = new System.Drawing.Point(286, 61);
+            this.txB_СorrectnessOfIterMethods.Name = "txB_СorrectnessOfIterMethods";
+            this.txB_СorrectnessOfIterMethods.Size = new System.Drawing.Size(200, 20);
+            this.txB_СorrectnessOfIterMethods.TabIndex = 2;
+            this.txB_СorrectnessOfIterMethods.Text = "0,00001";
+            this.txB_СorrectnessOfIterMethods.Visible = false;
+            this.txB_СorrectnessOfIterMethods.Leave += new System.EventHandler(this.txB_СorrectnessOfIterMethods_Leave);
             // 
-            // listBox1
+            // btnSolveSLAE
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 404);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(778, 95);
-            this.listBox1.TabIndex = 1;
+            this.btnSolveSLAE.Location = new System.Drawing.Point(286, 146);
+            this.btnSolveSLAE.Name = "btnSolveSLAE";
+            this.btnSolveSLAE.Size = new System.Drawing.Size(200, 23);
+            this.btnSolveSLAE.TabIndex = 1;
+            this.btnSolveSLAE.Text = "Розв\'язати";
+            this.btnSolveSLAE.UseVisualStyleBackColor = true;
+            this.btnSolveSLAE.Click += new System.EventHandler(this.btnSolveSLAE_Click);
+            // 
+            // grB_MethodSolving
+            // 
+            this.grB_MethodSolving.Controls.Add(this.rdB_mSeidelMethod);
+            this.grB_MethodSolving.Controls.Add(this.rdB_mMethodOfSuccessiveIteration);
+            this.grB_MethodSolving.Controls.Add(this.rdB_mMethodOfGaussianElimination);
+            this.grB_MethodSolving.Controls.Add(this.rdB_mSquare_RootMethod);
+            this.grB_MethodSolving.Controls.Add(this.rdB_mThreediagonalMatrixAlgorithm);
+            this.grB_MethodSolving.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grB_MethodSolving.Location = new System.Drawing.Point(3, 16);
+            this.grB_MethodSolving.Name = "grB_MethodSolving";
+            this.grB_MethodSolving.Size = new System.Drawing.Size(277, 156);
+            this.grB_MethodSolving.TabIndex = 0;
+            this.grB_MethodSolving.TabStop = false;
+            this.grB_MethodSolving.Text = "Метод розв\'язання";
+            // 
+            // rdB_mSeidelMethod
+            // 
+            this.rdB_mSeidelMethod.AutoSize = true;
+            this.rdB_mSeidelMethod.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdB_mSeidelMethod.Location = new System.Drawing.Point(3, 100);
+            this.rdB_mSeidelMethod.Name = "rdB_mSeidelMethod";
+            this.rdB_mSeidelMethod.Padding = new System.Windows.Forms.Padding(2);
+            this.rdB_mSeidelMethod.Size = new System.Drawing.Size(271, 21);
+            this.rdB_mSeidelMethod.TabIndex = 4;
+            this.rdB_mSeidelMethod.Text = "метод Зейделя";
+            this.rdB_mSeidelMethod.UseVisualStyleBackColor = true;
+            this.rdB_mSeidelMethod.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
+            // 
+            // rdB_mMethodOfSuccessiveIteration
+            // 
+            this.rdB_mMethodOfSuccessiveIteration.AutoSize = true;
+            this.rdB_mMethodOfSuccessiveIteration.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdB_mMethodOfSuccessiveIteration.Location = new System.Drawing.Point(3, 79);
+            this.rdB_mMethodOfSuccessiveIteration.Name = "rdB_mMethodOfSuccessiveIteration";
+            this.rdB_mMethodOfSuccessiveIteration.Padding = new System.Windows.Forms.Padding(2);
+            this.rdB_mMethodOfSuccessiveIteration.Size = new System.Drawing.Size(271, 21);
+            this.rdB_mMethodOfSuccessiveIteration.TabIndex = 3;
+            this.rdB_mMethodOfSuccessiveIteration.Text = "метод простої ітерації";
+            this.rdB_mMethodOfSuccessiveIteration.UseVisualStyleBackColor = true;
+            this.rdB_mMethodOfSuccessiveIteration.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
+            // 
+            // rdB_mMethodOfGaussianElimination
+            // 
+            this.rdB_mMethodOfGaussianElimination.AutoSize = true;
+            this.rdB_mMethodOfGaussianElimination.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdB_mMethodOfGaussianElimination.Location = new System.Drawing.Point(3, 58);
+            this.rdB_mMethodOfGaussianElimination.Name = "rdB_mMethodOfGaussianElimination";
+            this.rdB_mMethodOfGaussianElimination.Padding = new System.Windows.Forms.Padding(2);
+            this.rdB_mMethodOfGaussianElimination.Size = new System.Drawing.Size(271, 21);
+            this.rdB_mMethodOfGaussianElimination.TabIndex = 2;
+            this.rdB_mMethodOfGaussianElimination.Text = "метод Гауса(послідовного виключення змінних)";
+            this.rdB_mMethodOfGaussianElimination.UseVisualStyleBackColor = true;
+            this.rdB_mMethodOfGaussianElimination.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
+            // 
+            // rdB_mSquare_RootMethod
+            // 
+            this.rdB_mSquare_RootMethod.AutoSize = true;
+            this.rdB_mSquare_RootMethod.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdB_mSquare_RootMethod.Location = new System.Drawing.Point(3, 37);
+            this.rdB_mSquare_RootMethod.Name = "rdB_mSquare_RootMethod";
+            this.rdB_mSquare_RootMethod.Padding = new System.Windows.Forms.Padding(2);
+            this.rdB_mSquare_RootMethod.Size = new System.Drawing.Size(271, 21);
+            this.rdB_mSquare_RootMethod.TabIndex = 1;
+            this.rdB_mSquare_RootMethod.Text = "метод квадратного кореня";
+            this.rdB_mSquare_RootMethod.UseVisualStyleBackColor = true;
+            this.rdB_mSquare_RootMethod.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
+            // 
+            // rdB_mThreediagonalMatrixAlgorithm
+            // 
+            this.rdB_mThreediagonalMatrixAlgorithm.AutoSize = true;
+            this.rdB_mThreediagonalMatrixAlgorithm.Checked = true;
+            this.rdB_mThreediagonalMatrixAlgorithm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rdB_mThreediagonalMatrixAlgorithm.Location = new System.Drawing.Point(3, 16);
+            this.rdB_mThreediagonalMatrixAlgorithm.Name = "rdB_mThreediagonalMatrixAlgorithm";
+            this.rdB_mThreediagonalMatrixAlgorithm.Padding = new System.Windows.Forms.Padding(2);
+            this.rdB_mThreediagonalMatrixAlgorithm.Size = new System.Drawing.Size(271, 21);
+            this.rdB_mThreediagonalMatrixAlgorithm.TabIndex = 0;
+            this.rdB_mThreediagonalMatrixAlgorithm.TabStop = true;
+            this.rdB_mThreediagonalMatrixAlgorithm.Text = "метод прогонки";
+            this.rdB_mThreediagonalMatrixAlgorithm.UseVisualStyleBackColor = true;
+            this.rdB_mThreediagonalMatrixAlgorithm.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 518);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(907, 544);
+            this.Controls.Add(this.grB_SolvingSelectedSLAE);
+            this.Controls.Add(this.grB_EditSLAEs);
             this.Name = "frmMain";
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.Text = "Методи розв’язання систем лінійних алгебраїчних рівнянь (СЛАР)";
+            this.grB_EditSLAEs.ResumeLayout(false);
+            this.grB_EditSLAEs.PerformLayout();
+            this.grB_AutoFormatWidthColumns.ResumeLayout(false);
+            this.grB_AutoFormatWidthColumns.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_CountEquations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_CountVariables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_ConstantTermsOfSLAE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV_MatrixOfSLAE)).EndInit();
+            this.grB_SolvingSelectedSLAE.ResumeLayout(false);
+            this.grB_SolvingSelectedSLAE.PerformLayout();
+            this.pnl_InfoAboutSolution.ResumeLayout(false);
+            this.pnl_InfoAboutSolution.PerformLayout();
+            this.grB_MethodSolving.ResumeLayout(false);
+            this.grB_MethodSolving.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox grB_EditSLAEs;
+        private System.Windows.Forms.Button btnAddSLAE;
+        private System.Windows.Forms.DataGridView dGV_ConstantTermsOfSLAE;
+        private System.Windows.Forms.DataGridView dGV_MatrixOfSLAE;
         private System.Windows.Forms.DataGridViewTextBoxColumn f;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.NumericUpDown nUD_CountEquations;
+        private System.Windows.Forms.NumericUpDown nUD_CountVariables;
+        private System.Windows.Forms.Button btnChangeSLAE;
+        private System.Windows.Forms.ComboBox cmB_ListSLAEs;
+        private System.Windows.Forms.Label lbl_CountEquations;
+        private System.Windows.Forms.Label lbl_CountVariables;
+        private System.Windows.Forms.GroupBox grB_SolvingSelectedSLAE;
+        private System.Windows.Forms.Panel pnl_InfoAboutSolution;
+        private System.Windows.Forms.ListBox ltB_InfoAboutSolution;
+        private System.Windows.Forms.Label lblInfoAboutSolution;
+        private System.Windows.Forms.Label lblСorrectnessOfIterMethods;
+        private System.Windows.Forms.TextBox txB_СorrectnessOfIterMethods;
+        private System.Windows.Forms.Button btnSolveSLAE;
+        private System.Windows.Forms.GroupBox grB_MethodSolving;
+        private System.Windows.Forms.RadioButton rdB_mSeidelMethod;
+        private System.Windows.Forms.RadioButton rdB_mMethodOfSuccessiveIteration;
+        private System.Windows.Forms.RadioButton rdB_mMethodOfGaussianElimination;
+        private System.Windows.Forms.RadioButton rdB_mSquare_RootMethod;
+        private System.Windows.Forms.RadioButton rdB_mThreediagonalMatrixAlgorithm;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.TextBox txB_NameNewSystem;
+        private System.Windows.Forms.GroupBox grB_AutoFormatWidthColumns;
+        private System.Windows.Forms.RadioButton rdB_Fill;
+        private System.Windows.Forms.RadioButton rdB_AllCells;
     }
 }
 
