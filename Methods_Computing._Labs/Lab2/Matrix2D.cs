@@ -377,10 +377,17 @@ namespace Lab2
                         _matrixElements[r_u, c_u] = _matrixElements[r_l, c_l];
                         _matrixElements[r_l, c_l] = tmp;
                     }
-                return true;
             }
             else
-                return false;
+            {
+                int m = this.ColCount,
+                    n = this.RowCount;
+                double[,] new_matrix = new double[m, n];
+                for (int i = 0; i < m; i++)
+                    for (int j = 0; j < n; j++)
+                        new_matrix[i, j] = this._matrixElements[j, i];
+                this._matrixElements = new_matrix;
+            }
         }
 
         public bool SwapLocationColumns(int index_col1, int index_col2)
