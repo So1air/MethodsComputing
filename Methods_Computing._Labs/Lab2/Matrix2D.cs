@@ -364,7 +364,7 @@ namespace Lab2
             return new_matrix;
         }
 
-        public bool Transposition()
+        public void Transposition()
         {
             if (this.IsQuadratic)
             {
