@@ -13,210 +13,6 @@ namespace Lab4
 {
     public partial class frmMain : Form
     {
-        private struct OneArgFuncPoint 
-        {
-            public double Arg;
-            public double Func;
-
-            public OneArgFuncPoint(double arg, double valueFunc)
-            {
-                Arg = arg;
-                Func = valueFunc;
-            }
-        }
-
-        private class CauchyProblem
-        {
-            public Func<double, double, double> DerivativeFunc { get; private set; }
-            public string TextDerivativeFunc { get; private set; }
-            public OneArgFuncPoint InitialValue { get; private set; }
-            public double A { get; private set; }     //будет пока неиспользуемым параметром, а в качестве начала отрезка будем брать x0(первая координата InitialValue)
-            public double B { get; private set; }
-
-            public Func<double, double> ExactSolution { get; private set; }
-            public string TextExactSolution { get; private set; }
-
-            public OneArgFuncPoint[] ResultEulerMethod { get; private set; }
-            public OneArgFuncPoint[] ResultEulerCauchyMethod { get; private set; }
-            public OneArgFuncPoint[] ResultEulerMethodCorr { get; private set; }
-            public OneArgFuncPoint[] ResultRungeKuttaMethod { get; private set; }
-            public OneArgFuncPoint[] ResultAdamsMethod { get; private set; }
-
-            public bool SetExactSolution(string y_x_)
-            {
-                if (y_x_ != null)
-                {
-                    Func<double, double> exact = TextToFuncTranslater.CreateOneArgFuncFromText(y_x_);
-                    if ((exact != null) && (exact(this.InitialValue.Arg) == this.InitialValue.Func))
-                    {
-                        this.ExactSolution = exact;
-                        this.TextExactSolution = y_x_;
-                        return true;
-                    }
-                }
-                
-                return false;
-            }
-
-            public bool ReSolutionEulerMethod(ushort N) 
-            {
-                if (N > 0)
-                {
-                    OneArgFuncPoint[] res = new OneArgFuncPoint[N + 1];
-                    res[0] = InitialValue;
-                    double h = (this.B - this.InitialValue.Arg) / N;
-                    try
-                    {
-                        for (int i = 0; i < N; i++)
-                            res[i + 1] = new OneArgFuncPoint(res[i].Arg + h, res[i].Func + h * DerivativeFunc(res[i].Arg, res[i].Func));
-                        this.ResultEulerMethod = res;
-                        return true;
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
-                }
-                return false; 
-            }
-
-            public bool ReSolutionEulerCauchyMethod(ushort N) 
-            {
-                if (N > 0)
-                {
-                    OneArgFuncPoint[] res = new OneArgFuncPoint[N + 1];
-                    res[0] = InitialValue;
-                    double h = (this.B - this.InitialValue.Arg) / N;
-                    try
-                    {
-                        for (int i = 0; i < N; i++)
-                            res[i + 1] = new OneArgFuncPoint(res[i].Arg + h, res[i].Func + h * DerivativeFunc(res[i].Arg, res[i].Func));
-                        for (int i = 0; i < N; i++)
-                            res[i + 1] = new OneArgFuncPoint(res[i + 1].Arg, res[i].Func + (h / 2) * (DerivativeFunc(res[i].Arg, res[i].Func) + DerivativeFunc(res[i + 1].Arg, res[i + 1].Func)));  
-                        this.ResultEulerCauchyMethod = res;
-                        return true;
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
-                }
-                return false; 
-            }
-
-            public bool ReSolutionEulerMethodCorr(ushort N, double eps, out uint k) 
-            {
-                k = 0;
-                if ((N > 0) && (eps > 0))
-                {
-                    OneArgFuncPoint[] res0 = new OneArgFuncPoint[N + 1];
-                    OneArgFuncPoint[] res1 = new OneArgFuncPoint[N + 1]; 
-                    res0[0] = InitialValue;
-                    res1[0] = InitialValue;
-                    bool flag_last = false,
-                         not_find_solution = true;
-                    double h = (this.B - this.InitialValue.Arg) / N;
-                    try
-                    {
-                        for (int i = 0; i < N; i++)
-                            res0[i + 1] = new OneArgFuncPoint(res0[i].Arg + h, res0[i].Func + h * DerivativeFunc(res0[i].Arg, res0[i].Func));
-                        do {
-                            flag_last = !flag_last; k++;
-                            if (flag_last)
-                                for (int i = 0; i < N; i++)
-                                    res1[i + 1] = new OneArgFuncPoint(res0[i + 1].Arg, 
-                                        res1[i].Func + (h / 2) * (DerivativeFunc(res1[i].Arg, res1[i].Func) + DerivativeFunc(res0[i + 1].Arg, res0[i + 1].Func)));
-                            else
-                                 for (int i = 0; i < N; i++)
-                                    res0[i + 1] = new OneArgFuncPoint(res1[i + 1].Arg, 
-                                        res0[i].Func + (h / 2) * (DerivativeFunc(res0[i].Arg, res0[i].Func) + DerivativeFunc(res1[i + 1].Arg, res1[i + 1].Func)));
-                            not_find_solution = false;
-                            for (int i = 1; (i <= N) && (!not_find_solution); i++)
-                                not_find_solution = (Math.Abs(res1[i].Func - res0[i].Func) >= eps);
-                        } while (not_find_solution);
-                        
-                        this.ResultEulerMethodCorr = (flag_last) ? res1 : res0;
-                        return true;
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
-                }
-                return false; 
-            }
-
-            public bool ReSolutionRungeKutta(ushort N, double eps, bool autostep, out double[,] k) 
-            {
-                if ((N > 0) && (eps > 0))
-                    if (autostep)
-                    {
-                        throw new NotImplementedException(); /////////////////////////////////////////////////////////////////////////////////////////
-                    }
-                    else
-                    {
-                        k = new double[N, 3];
-                        OneArgFuncPoint[] res = new OneArgFuncPoint[N + 1];
-                        res[0] = InitialValue;
-                        double h = (this.B - this.InitialValue.Arg) / N;
-                        try
-                        {  
-                            
-                            for (int i = 0; i < N; i++)
-                            {
-                                k[i, 0] = DerivativeFunc(res[i].Arg, res[i].Func);
-                                #region для нечётного варианта                                
-                                k[i, 1] = DerivativeFunc(res[i].Arg + h / 2, res[i].Func + (k[i, 0] / 2));
-                                k[i, 2] = DerivativeFunc(res[i].Arg + h, res[i].Func - k[i, 0] + 2 * k[i, 1]);
-                                res[i + 1] = new OneArgFuncPoint(res[i].Arg + h, res[i].Func + (h / 6) * (k[i, 0] + 4 * k[i, 1] + k[i, 2]));
-                                #endregion
-                                #region для чётного варианта
-                                /*k[i, 1] = DerivativeFunc(res[i].Arg + h / 3, res[i].Func + (k[i, 0] / 3));
-                                k[i, 2] = DerivativeFunc(res[i].Arg + 2 * h / 3, res[i].Func + (2 * k[i, 1] / 3));
-                                res[i + 1] = new OneArgFuncPoint(res[i].Arg + h, res[i].Func + (h / 4) * (k[i, 0] + 3 * k[i, 2]));*/
-                                #endregion
-                            }
-                            this.ResultRungeKuttaMethod = res;
-                            return true;
-                        }
-                        catch (Exception)
-                        {
-                            return false;
-                        }
-                    }
-                k = null;
-                return false; 
-            }
-
-            public bool ReSolutionAdams(ushort N, double eps, bool autostep) 
-            { 
-                return false; 
-            }
-
-            public override string ToString()
-            {
-                return this.TextDerivativeFunc;
-            }
-
-            public static CauchyProblem CreateInstance(string rightPartEquation, double x0, double y0, double a, double b)
-            {
-                Func<double, double, double> derF = TextToFuncTranslater.CreateTwoArgFuncFromText(rightPartEquation);
-                if ((derF != null) && (a < b) && (x0 >= a) && (x0 <= b))
-                    return new CauchyProblem(rightPartEquation, derF, x0, y0, a, b);
-                else
-                    return null;
-            }
-
-            private CauchyProblem(string textDerivative, Func<double, double, double> derivative, double x0, double y0, double a, double b)
-            {
-                this.DerivativeFunc = derivative;
-                this.TextDerivativeFunc = textDerivative;
-                this.InitialValue = new OneArgFuncPoint(x0, y0);
-                this.A = a;
-                this.B = b;
-            }
-        }
-
         private double _oldEps;
         private CauchyProblem _currCauchyTask;
         private int _oldSelectedIndex;
@@ -226,7 +22,13 @@ namespace Lab4
         {
             InitializeComponent();
             _oldEps = double.Parse(txB_Eps.Text);
+            this.cmB_RightPartEquation.Items.Add(CauchyProblem.CreateInstance("x - Math.Sqrt(x*y)", 0, 0, 0, 1));
+            this.cmB_RightPartEquation.Items.Add(CauchyProblem.CreateInstance("1 - x * Math.Sqrt(y)", 0, 1, 0, 1));
+            this.cmB_RightPartEquation.Items.Add(CauchyProblem.CreateInstance("1 - Math.Sin(x*y)", 0, 2, 0, 1));
+            this.cmB_RightPartEquation.Items.Add(CauchyProblem.CreateInstance("x - Math.Sqrt(y)", 0, 0, 0, 1));
+            this.cmB_RightPartEquation.Items.Add(CauchyProblem.CreateInstance("1 - Math.Sqrt(x + y)", 0, 0, 0, 1));
             this.cmB_RightPartEquation.Items.Add(CauchyProblem.CreateInstance("1 - Math.Sqrt(x*x + y*y)", 0, 0, 0, 1));
+            this.cmB_RightPartEquation.Items.Add(CauchyProblem.CreateInstance("x - x / y", 0, 1, 0, 1));
             this.cmB_RightPartEquation.SelectedIndex = 0;
         }
 
@@ -316,14 +118,18 @@ namespace Lab4
             {
                 if (_currCauchyTask.SetExactSolution(this.txB_ExactSolution.Text))
                 {
+                    btnEditExactSolution.BackColor = Color.MintCream;
+                    ReDrawGraphOfExactSol();
+                    if (dGV_Results.RowCount > 1)
+                        for (int i = 0, n = dGV_Results.RowCount - 1; i < n; i++)
+                            dGV_Results.Rows[i].Cells["clnExactSol"].Value = _currCauchyTask.ExactSolution((double)dGV_Results.Rows[i].Cells["clnX"].Value);
+                }
+                else
+                {   
                     txB_ExactSolution.Text = _currCauchyTask.TextExactSolution;
                     btnEditExactSolution.BackColor = Color.Coral;
                     MessageBox.Show("Перевірте коректність введення точного розв'язку або його відповідність умові задачі(невідповідність може проявлятися у тому, що введене значення не задовольняє початковій умові");
-                }
-                else
-                {
-                    btnEditExactSolution.BackColor = Color.MintCream;
-                    ReDrawGraphOfExactSol();
+                   
                 }
                 txB_ExactSolution.ReadOnly = true;
             }
@@ -338,6 +144,10 @@ namespace Lab4
                        h = (this._currCauchyTask.B - x) / COUNT_POINTS_FOR_GRAPH;
                 for (int i = 0; i <= COUNT_POINTS_FOR_GRAPH; i++, x += h)
                     this.chtGraph.Series["srsExactSol"].Points.AddXY(x, _currCauchyTask.ExactSolution(x));
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Занадто велике значення функції на відрізку!");
             }
             catch (Exception)
             {
@@ -643,27 +453,32 @@ namespace Lab4
                     args.Add(_currCauchyTask.ResultAdamsMethod[i].Arg);
             if (args.Count > 0)
             {
-                dGV_Results.RowCount = args.Count;
+                dGV_Results.RowCount = args.Count + 1;
                 int numRow = 0;
+                bool  theres_exact_sol;
                 foreach (double arg in args)
+                {
+                    dGV_Results.Rows[numRow].HeaderCell.Value = numRow;
                     dGV_Results.Rows[numRow++].Cells["clnX"].Value = arg;
-                if (_currCauchyTask.ExactSolution != null)
+                }
+                if (theres_exact_sol = (_currCauchyTask.ExactSolution != null))
                 {                
                     numRow = 0;
                     foreach (double arg in args)
                         dGV_Results.Rows[numRow++].Cells["clnExactSol"].Value = _currCauchyTask.ExactSolution(arg);
                 }
                 
-                int numPoint = 0;
+                int numPoint = -1;
                 if (_currCauchyTask.ResultEulerMethod != null)
                 {
                     numRow = 0;
                     foreach (double arg in args)
                     {
-                        if (arg == _currCauchyTask.ResultEulerMethod[numPoint].Arg)
+                        if (arg == _currCauchyTask.ResultEulerMethod[numPoint + 1].Arg)
                         {
-                            dGV_Results.Rows[numRow++].Cells["clnEuler"].Value = _currCauchyTask.ResultEulerMethod[numPoint++].Func;
-                            if (numPoint == _currCauchyTask.ResultEulerMethod.Length)
+                            dGV_Results.Rows[numRow++].Cells["clnEuler"].Value = _currCauchyTask.ResultEulerMethod[++numPoint].Func 
+                                + ((theres_exact_sol) ? "\n (" + (_currCauchyTask.ExactSolution(_currCauchyTask.ResultEulerMethod[numPoint].Arg) - _currCauchyTask.ResultEulerMethod[numPoint].Func) + ")" : "");
+                            if (numPoint == _currCauchyTask.ResultEulerMethod.Length - 1)
                                 break;
                         }
                         else
@@ -673,13 +488,14 @@ namespace Lab4
 
                 if (_currCauchyTask.ResultEulerCauchyMethod != null)
                 {
-                    numRow = 0; numPoint = 0;
+                    numRow = 0; numPoint = -1;
                     foreach (double arg in args)
                     {
-                        if (arg == _currCauchyTask.ResultEulerCauchyMethod[numPoint].Arg)
+                        if (arg == _currCauchyTask.ResultEulerCauchyMethod[numPoint + 1].Arg)
                         {
-                            dGV_Results.Rows[numRow++].Cells["clnEulerCauchy"].Value = _currCauchyTask.ResultEulerCauchyMethod[numPoint++].Func;
-                            if (numPoint == _currCauchyTask.ResultEulerCauchyMethod.Length)
+                            dGV_Results.Rows[numRow++].Cells["clnEulerCauchy"].Value = _currCauchyTask.ResultEulerCauchyMethod[++numPoint].Func
+                                + ((theres_exact_sol) ? "\n (" + (_currCauchyTask.ExactSolution(_currCauchyTask.ResultEulerCauchyMethod[numPoint].Arg) - _currCauchyTask.ResultEulerCauchyMethod[numPoint].Func) + ")" : ""); 
+                            if (numPoint == _currCauchyTask.ResultEulerCauchyMethod.Length - 1)
                                 break;
                         }
                         else
@@ -689,13 +505,14 @@ namespace Lab4
 
                 if (_currCauchyTask.ResultEulerMethodCorr != null)
                 {
-                    numRow = 0; numPoint = 0;
+                    numRow = 0; numPoint = -1;
                     foreach (double arg in args)
                     {
-                        if (arg == _currCauchyTask.ResultEulerMethodCorr[numPoint].Arg)
+                        if (arg == _currCauchyTask.ResultEulerMethodCorr[numPoint + 1].Arg)
                         {
-                            dGV_Results.Rows[numRow++].Cells["clnEulerWithCorrection"].Value = _currCauchyTask.ResultEulerMethodCorr[numPoint++].Func;
-                            if (numPoint == _currCauchyTask.ResultEulerMethodCorr.Length)
+                            dGV_Results.Rows[numRow++].Cells["clnEulerWithCorrection"].Value = _currCauchyTask.ResultEulerMethodCorr[++numPoint].Func
+                                + ((theres_exact_sol) ? "\n (" + (_currCauchyTask.ExactSolution(_currCauchyTask.ResultEulerMethodCorr[numPoint].Arg) - _currCauchyTask.ResultEulerMethodCorr[numPoint].Func) + ")" : "");
+                            if (numPoint == _currCauchyTask.ResultEulerMethodCorr.Length - 1)
                                 break;
                         }
                         else
@@ -705,13 +522,14 @@ namespace Lab4
 
                 if (_currCauchyTask.ResultRungeKuttaMethod != null)
                 {
-                    numRow = 0; numPoint = 0;
+                    numRow = 0; numPoint = -1;
                     foreach (double arg in args)
                     {
-                        if (arg == _currCauchyTask.ResultRungeKuttaMethod[numPoint].Arg)
+                        if (arg == _currCauchyTask.ResultRungeKuttaMethod[numPoint + 1].Arg)
                         {
-                            dGV_Results.Rows[numRow++].Cells["clnRungeKutta"].Value = _currCauchyTask.ResultRungeKuttaMethod[numPoint++].Func;
-                            if (numPoint == _currCauchyTask.ResultRungeKuttaMethod.Length)
+                            dGV_Results.Rows[numRow++].Cells["clnRungeKutta"].Value = _currCauchyTask.ResultRungeKuttaMethod[++numPoint].Func
+                                + ((theres_exact_sol) ? "\n (" + (_currCauchyTask.ExactSolution(_currCauchyTask.ResultRungeKuttaMethod[numPoint].Arg) - _currCauchyTask.ResultRungeKuttaMethod[numPoint].Func) + ")" : "");
+                            if (numPoint == _currCauchyTask.ResultRungeKuttaMethod.Length - 1)
                                 break;
                         }
                         else
@@ -721,19 +539,27 @@ namespace Lab4
 
                 if (_currCauchyTask.ResultAdamsMethod != null)
                 {
-                    numRow = 0; numPoint = 0;
+                    numRow = 0; numPoint = -1;
                     foreach (double arg in args)
                     {
-                        if (arg == _currCauchyTask.ResultAdamsMethod[numPoint].Arg)
+                        if (arg == _currCauchyTask.ResultAdamsMethod[numPoint + 1].Arg)
                         {
-                            dGV_Results.Rows[numRow++].Cells["clnAdams"].Value = _currCauchyTask.ResultAdamsMethod[numPoint++].Func;
-                            if (numPoint == _currCauchyTask.ResultAdamsMethod.Length)
+                            dGV_Results.Rows[numRow++].Cells["clnAdams"].Value = _currCauchyTask.ResultAdamsMethod[++numPoint].Func
+                                + ((theres_exact_sol) ? "\n (" + (_currCauchyTask.ExactSolution(_currCauchyTask.ResultAdamsMethod[numPoint].Arg) - _currCauchyTask.ResultAdamsMethod[numPoint].Func) + ")" : "");
+                            if (numPoint == _currCauchyTask.ResultAdamsMethod.Length - 1)
                                 break;
                         }
                         else
                             numRow++;
                     }
                 }
+                dGV_Results.Rows[dGV_Results.RowCount - 1].Cells["clnX"].Value = "Кількість точок: ";
+                dGV_Results.Rows[dGV_Results.RowCount - 1].Cells["clnExactSol"].Value = (this._currCauchyTask.ExactSolution != null) ? args.Count.ToString() : "";
+                dGV_Results.Rows[dGV_Results.RowCount - 1].Cells["clnEuler"].Value = (this._currCauchyTask.ResultEulerMethod != null) ? this._currCauchyTask.ResultEulerMethod.Length : 0;
+                dGV_Results.Rows[dGV_Results.RowCount - 1].Cells["clnEulerCauchy"].Value = (this._currCauchyTask.ResultEulerCauchyMethod != null) ? this._currCauchyTask.ResultEulerCauchyMethod.Length : 0;
+                dGV_Results.Rows[dGV_Results.RowCount - 1].Cells["clnEulerWithCorrection"].Value = (this._currCauchyTask.ResultEulerMethodCorr != null) ? this._currCauchyTask.ResultEulerMethodCorr.Length : 0;
+                dGV_Results.Rows[dGV_Results.RowCount - 1].Cells["clnRungeKutta"].Value = (this._currCauchyTask.ResultRungeKuttaMethod != null) ? this._currCauchyTask.ResultRungeKuttaMethod.Length : 0;
+                dGV_Results.Rows[dGV_Results.RowCount - 1].Cells["clnAdams"].Value = (this._currCauchyTask.ResultAdamsMethod != null) ? this._currCauchyTask.ResultAdamsMethod.Length : 0;
             }
         }
 
@@ -788,7 +614,24 @@ namespace Lab4
             }
             if (rdB_RungeKutta.Checked)
                 if (chB_AutoStep.Checked)
-                    ;
+                {
+                    double[,] k;
+                    if (_currCauchyTask.ReSolutionRungeKutta((ushort)nUD_CountPartition.Value, _oldEps, true, out k))
+                    {
+                        FillTable();
+                        ReDrawGraphOfRungeKutta();
+                        MessageBox.Show("Кількість кроків у методі Рунге-Кутта з автовибором кроку: " + _currCauchyTask.ResultRungeKuttaMethod.Length);
+                        //string coefficients = "";
+                        //for (int i = 0, n = k.GetLength(0); i < n; i++)
+                        //    coefficients += "\n к" + NumberToLowIndex(i + 1) + "," + NumberToLowIndex(1) + " = " + k[i, 0]
+                        //                   + "; k" + NumberToLowIndex(i + 1) + "," + NumberToLowIndex(2) + " = " + k[i, 1]
+                        //                   + "; k" + NumberToLowIndex(i + 1) + "," + NumberToLowIndex(3) + " = " + k[i, 2] + ";";   
+
+                        //MessageBox.Show("Коефіціенти у методі Рунге-Кутта:" + coefficients);
+                    }
+                    else
+                        MessageBox.Show("Помилка у методі Рунге-Кутта з автокроком");
+                }
                 else
                 {
                     double[,] k;
@@ -800,7 +643,7 @@ namespace Lab4
                         for (int i = 0, n = k.GetLength(0); i < n; i++)
                             coefficients += "\n к" + NumberToLowIndex(i + 1) + "," + NumberToLowIndex(1) + " = " + k[i, 0]
                                            + "; k" + NumberToLowIndex(i + 1) + "," + NumberToLowIndex(2) + " = " + k[i, 1]
-                                           + "; k" + NumberToLowIndex(i + 1) + "," + NumberToLowIndex(3) + " = " + k[i, 2] + ";";   
+                                           + "; k" + NumberToLowIndex(i + 1) + "," + NumberToLowIndex(3) + " = " + k[i, 2] + ";";
 
                         MessageBox.Show("Коефіціенти у методі Рунге-Кутта:" + coefficients);
                     }
@@ -808,12 +651,23 @@ namespace Lab4
                         MessageBox.Show("Помилка у методі Рунге-Кутта з фіксованим кроком");
                 }
             if (rdB_Adams.Checked)
-                ;
+                if (_currCauchyTask.ReSolutionAdams((ushort)nUD_CountPartition.Value, _oldEps))
+                {
+                    FillTable();
+                    ReDrawGraphOfAdams();
+                }
+                else
+                    MessageBox.Show("Помилка у методі Aдамса");
         }
 
         private void dGV_Results_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dGV_Results.Dock = (dGV_Results.Dock == DockStyle.None) ? DockStyle.Bottom : DockStyle.None;
+        }
+
+        private void chB_ExactSolGraph_CheckedChanged(object sender, EventArgs e)
+        {
+            chtGraph.Series["srsExactSol"].Enabled = chB_ExactSolGraph.Checked;
         }       
     }
 }

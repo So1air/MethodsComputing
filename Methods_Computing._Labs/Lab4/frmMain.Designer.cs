@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lbl_LeftPartEquation = new System.Windows.Forms.Label();
             this.txB_A = new System.Windows.Forms.TextBox();
             this.cmB_RightPartEquation = new System.Windows.Forms.ComboBox();
@@ -62,13 +63,6 @@
             this.lblA = new System.Windows.Forms.Label();
             this.lblB = new System.Windows.Forms.Label();
             this.dGV_Results = new System.Windows.Forms.DataGridView();
-            this.clnX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnExactSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEuler = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEulerCauchy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEulerWithCorrection = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnRungeKutta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnAdams = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnResolve = new System.Windows.Forms.Button();
             this.btnAddCauchyProblem = new System.Windows.Forms.Button();
             this.lbl_ExactSolution = new System.Windows.Forms.Label();
@@ -81,6 +75,14 @@
             this.chB_AutoStep = new System.Windows.Forms.CheckBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.chB_ExactSolGraph = new System.Windows.Forms.CheckBox();
+            this.clnX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnExactSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEuler = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEulerCauchy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEulerWithCorrection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnRungeKutta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnAdams = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grB_MethodsOfSolution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGV_Results)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chtGraph)).BeginInit();
@@ -399,14 +401,14 @@
             this.dGV_Results.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dGV_Results.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dGV_Results.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Monotype Corsiva", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dGV_Results.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Monotype Corsiva", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGV_Results.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dGV_Results.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV_Results.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnX,
@@ -416,82 +418,34 @@
             this.clnEulerWithCorrection,
             this.clnRungeKutta,
             this.clnAdams});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Monotype Corsiva", 13F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGV_Results.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Monotype Corsiva", 13F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGV_Results.DefaultCellStyle = dataGridViewCellStyle2;
             this.dGV_Results.Location = new System.Drawing.Point(14, 265);
             this.dGV_Results.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dGV_Results.Name = "dGV_Results";
             this.dGV_Results.ReadOnly = true;
-            this.dGV_Results.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dGV_Results.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGV_Results.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dGV_Results.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dGV_Results.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dGV_Results.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dGV_Results.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dGV_Results.Size = new System.Drawing.Size(404, 331);
             this.dGV_Results.TabIndex = 14;
             this.dGV_Results.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_Results_CellContentClick);
-            // 
-            // clnX
-            // 
-            this.clnX.HeaderText = "x";
-            this.clnX.Name = "clnX";
-            this.clnX.ReadOnly = true;
-            this.clnX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnX.Width = 23;
-            // 
-            // clnExactSol
-            // 
-            this.clnExactSol.HeaderText = "Точне значення";
-            this.clnExactSol.Name = "clnExactSol";
-            this.clnExactSol.ReadOnly = true;
-            this.clnExactSol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnExactSol.Width = 116;
-            // 
-            // clnEuler
-            // 
-            this.clnEuler.HeaderText = "м. Ейлера";
-            this.clnEuler.Name = "clnEuler";
-            this.clnEuler.ReadOnly = true;
-            this.clnEuler.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnEuler.Width = 77;
-            // 
-            // clnEulerCauchy
-            // 
-            this.clnEulerCauchy.HeaderText = "м. Ейлера-Коші";
-            this.clnEulerCauchy.Name = "clnEulerCauchy";
-            this.clnEulerCauchy.ReadOnly = true;
-            this.clnEulerCauchy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnEulerCauchy.Width = 113;
-            // 
-            // clnEulerWithCorrection
-            // 
-            this.clnEulerWithCorrection.HeaderText = "м. Ейлера з уточн.";
-            this.clnEulerWithCorrection.Name = "clnEulerWithCorrection";
-            this.clnEulerWithCorrection.ReadOnly = true;
-            this.clnEulerWithCorrection.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnEulerWithCorrection.Width = 91;
-            // 
-            // clnRungeKutta
-            // 
-            this.clnRungeKutta.HeaderText = "м. Рунге-Кутта";
-            this.clnRungeKutta.Name = "clnRungeKutta";
-            this.clnRungeKutta.ReadOnly = true;
-            this.clnRungeKutta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnRungeKutta.Width = 114;
-            // 
-            // clnAdams
-            // 
-            this.clnAdams.HeaderText = "м. Адамса";
-            this.clnAdams.Name = "clnAdams";
-            this.clnAdams.ReadOnly = true;
-            this.clnAdams.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnAdams.Width = 77;
             // 
             // btnResolve
             // 
@@ -545,7 +499,7 @@
             this.txB_ExactSolution.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txB_ExactSolution.Name = "txB_ExactSolution";
             this.txB_ExactSolution.ReadOnly = true;
-            this.txB_ExactSolution.Size = new System.Drawing.Size(313, 24);
+            this.txB_ExactSolution.Size = new System.Drawing.Size(281, 24);
             this.txB_ExactSolution.TabIndex = 18;
             this.txB_ExactSolution.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txB_ExactSolution_KeyUp);
             this.txB_ExactSolution.Leave += new System.EventHandler(this.txB_ExactSolution_Leave);
@@ -557,7 +511,7 @@
             this.btnEditExactSolution.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditExactSolution.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnEditExactSolution.ForeColor = System.Drawing.Color.Black;
-            this.btnEditExactSolution.Location = new System.Drawing.Point(1060, 9);
+            this.btnEditExactSolution.Location = new System.Drawing.Point(1028, 9);
             this.btnEditExactSolution.Margin = new System.Windows.Forms.Padding(0);
             this.btnEditExactSolution.Name = "btnEditExactSolution";
             this.btnEditExactSolution.Size = new System.Drawing.Size(28, 22);
@@ -571,92 +525,93 @@
             this.chtGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea2.AxisX.MinorGrid.Enabled = true;
-            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea2.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.AxisX.MinorTickMark.Enabled = true;
-            chartArea2.AxisX.MinorTickMark.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
-            chartArea2.AxisX.MinorTickMark.Size = 0.5F;
-            chartArea2.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea2.AxisX.ScaleView.SmallScrollMinSize = 1E-05D;
-            chartArea2.AxisX.ScrollBar.Size = 10D;
-            chartArea2.AxisX.Title = "x";
-            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea2.AxisY.MinorGrid.Enabled = true;
-            chartArea2.AxisY.MinorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea2.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.AxisY.MinorTickMark.Enabled = true;
-            chartArea2.AxisY.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.AxisY.MinorTickMark.Size = 0.5F;
-            chartArea2.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
-            chartArea2.AxisY.ScaleView.SmallScrollMinSize = 1E-05D;
-            chartArea2.AxisY.ScrollBar.Size = 10D;
-            chartArea2.AxisY.Title = "y(x)";
-            chartArea2.BackColor = System.Drawing.Color.White;
-            chartArea2.CursorX.Interval = 0.0001D;
-            chartArea2.CursorX.IsUserSelectionEnabled = true;
-            chartArea2.CursorY.Interval = 0.0001D;
-            chartArea2.CursorY.IsUserSelectionEnabled = true;
-            chartArea2.Name = "ChartArea";
-            this.chtGraph.ChartAreas.Add(chartArea2);
-            legend2.BorderColor = System.Drawing.Color.Transparent;
-            legend2.BorderWidth = 0;
-            legend2.DockedToChartArea = "ChartArea";
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.IsDockedInsideChartArea = false;
-            legend2.MaximumAutoSize = 25F;
-            legend2.Name = "lgnSolutions";
-            this.chtGraph.Legends.Add(legend2);
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea1.AxisX.MinorGrid.Enabled = true;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea1.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisX.MinorTickMark.Enabled = true;
+            chartArea1.AxisX.MinorTickMark.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea1.AxisX.MinorTickMark.Size = 0.5F;
+            chartArea1.AxisX.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea1.AxisX.ScaleView.SmallScrollMinSize = 1E-05D;
+            chartArea1.AxisX.ScrollBar.Size = 10D;
+            chartArea1.AxisX.Title = "x";
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea1.AxisY.MinorGrid.Enabled = true;
+            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea1.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MinorTickMark.Enabled = true;
+            chartArea1.AxisY.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MinorTickMark.Size = 0.5F;
+            chartArea1.AxisY.MinorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.AcrossAxis;
+            chartArea1.AxisY.ScaleView.SmallScrollMinSize = 1E-05D;
+            chartArea1.AxisY.ScrollBar.Size = 10D;
+            chartArea1.AxisY.Title = "y(x)";
+            chartArea1.BackColor = System.Drawing.Color.White;
+            chartArea1.CursorX.Interval = 0.0001D;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.CursorY.Interval = 0.0001D;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
+            chartArea1.Name = "ChartArea";
+            this.chtGraph.ChartAreas.Add(chartArea1);
+            legend1.BorderColor = System.Drawing.Color.Transparent;
+            legend1.BorderWidth = 0;
+            legend1.DockedToChartArea = "ChartArea";
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.IsDockedInsideChartArea = false;
+            legend1.MaximumAutoSize = 25F;
+            legend1.Name = "lgnSolutions";
+            this.chtGraph.Legends.Add(legend1);
             this.chtGraph.Location = new System.Drawing.Point(439, 46);
             this.chtGraph.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chtGraph.Name = "chtGraph";
             this.chtGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series7.BorderWidth = 2;
-            series7.ChartArea = "ChartArea";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Legend = "lgnSolutions";
-            series7.LegendText = "точний розв\'язок";
-            series7.Name = "srsExactSol";
-            series8.ChartArea = "ChartArea";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Color = System.Drawing.Color.GreenYellow;
-            series8.Legend = "lgnSolutions";
-            series8.LegendText = "метод Ейлера";
-            series8.Name = "srsEuler";
-            series9.ChartArea = "ChartArea";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Color = System.Drawing.Color.Red;
-            series9.Legend = "lgnSolutions";
-            series9.LegendText = "метод Ейлера-Коші";
-            series9.Name = "srsEulerCauchy";
-            series10.ChartArea = "ChartArea";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Color = System.Drawing.Color.Gold;
-            series10.Legend = "lgnSolutions";
-            series10.LegendText = "метод Ейлера з уточненням";
-            series10.Name = "srsEulerWithCorrection";
-            series11.ChartArea = "ChartArea";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Color = System.Drawing.Color.Blue;
-            series11.Legend = "lgnSolutions";
-            series11.LegendText = "метод Рунге-Кутта";
-            series11.Name = "srsRungeKutta";
-            series12.ChartArea = "ChartArea";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.Magenta;
-            series12.Legend = "lgnSolutions";
-            series12.LegendText = "метод Адамса";
-            series12.Name = "srsAdams";
-            this.chtGraph.Series.Add(series7);
-            this.chtGraph.Series.Add(series8);
-            this.chtGraph.Series.Add(series9);
-            this.chtGraph.Series.Add(series10);
-            this.chtGraph.Series.Add(series11);
-            this.chtGraph.Series.Add(series12);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Sienna;
+            series1.Legend = "lgnSolutions";
+            series1.LegendText = "точний розв\'язок";
+            series1.Name = "srsExactSol";
+            series2.ChartArea = "ChartArea";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.GreenYellow;
+            series2.Legend = "lgnSolutions";
+            series2.LegendText = "метод Ейлера";
+            series2.Name = "srsEuler";
+            series3.ChartArea = "ChartArea";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Red;
+            series3.Legend = "lgnSolutions";
+            series3.LegendText = "метод Ейлера-Коші";
+            series3.Name = "srsEulerCauchy";
+            series4.ChartArea = "ChartArea";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Gold;
+            series4.Legend = "lgnSolutions";
+            series4.LegendText = "метод Ейлера з уточненням";
+            series4.Name = "srsEulerWithCorrection";
+            series5.ChartArea = "ChartArea";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Blue;
+            series5.Legend = "lgnSolutions";
+            series5.LegendText = "метод Рунге-Кутта";
+            series5.Name = "srsRungeKutta";
+            series6.ChartArea = "ChartArea";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.Magenta;
+            series6.Legend = "lgnSolutions";
+            series6.LegendText = "метод Адамса";
+            series6.Name = "srsAdams";
+            this.chtGraph.Series.Add(series1);
+            this.chtGraph.Series.Add(series2);
+            this.chtGraph.Series.Add(series3);
+            this.chtGraph.Series.Add(series4);
+            this.chtGraph.Series.Add(series5);
+            this.chtGraph.Series.Add(series6);
             this.chtGraph.Size = new System.Drawing.Size(664, 559);
             this.chtGraph.TabIndex = 20;
             // 
@@ -753,12 +708,85 @@
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // chB_ExactSolGraph
+            // 
+            this.chB_ExactSolGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chB_ExactSolGraph.AutoSize = true;
+            this.chB_ExactSolGraph.BackColor = System.Drawing.Color.Sienna;
+            this.chB_ExactSolGraph.Checked = true;
+            this.chB_ExactSolGraph.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chB_ExactSolGraph.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chB_ExactSolGraph.Location = new System.Drawing.Point(1068, 13);
+            this.chB_ExactSolGraph.Name = "chB_ExactSolGraph";
+            this.chB_ExactSolGraph.Size = new System.Drawing.Size(15, 14);
+            this.chB_ExactSolGraph.TabIndex = 10;
+            this.chB_ExactSolGraph.UseVisualStyleBackColor = false;
+            this.chB_ExactSolGraph.CheckedChanged += new System.EventHandler(this.chB_ExactSolGraph_CheckedChanged);
+            // 
+            // clnX
+            // 
+            this.clnX.Frozen = true;
+            this.clnX.HeaderText = "x";
+            this.clnX.Name = "clnX";
+            this.clnX.ReadOnly = true;
+            this.clnX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnX.Width = 23;
+            // 
+            // clnExactSol
+            // 
+            this.clnExactSol.HeaderText = "Точне значення";
+            this.clnExactSol.Name = "clnExactSol";
+            this.clnExactSol.ReadOnly = true;
+            this.clnExactSol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnExactSol.Width = 116;
+            // 
+            // clnEuler
+            // 
+            this.clnEuler.HeaderText = "м. Ейлера";
+            this.clnEuler.Name = "clnEuler";
+            this.clnEuler.ReadOnly = true;
+            this.clnEuler.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnEuler.Width = 77;
+            // 
+            // clnEulerCauchy
+            // 
+            this.clnEulerCauchy.HeaderText = "м. Ейлера-Коші";
+            this.clnEulerCauchy.Name = "clnEulerCauchy";
+            this.clnEulerCauchy.ReadOnly = true;
+            this.clnEulerCauchy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnEulerCauchy.Width = 113;
+            // 
+            // clnEulerWithCorrection
+            // 
+            this.clnEulerWithCorrection.HeaderText = "м. Ейлера з уточн.";
+            this.clnEulerWithCorrection.Name = "clnEulerWithCorrection";
+            this.clnEulerWithCorrection.ReadOnly = true;
+            this.clnEulerWithCorrection.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnEulerWithCorrection.Width = 91;
+            // 
+            // clnRungeKutta
+            // 
+            this.clnRungeKutta.HeaderText = "м. Рунге-Кутта";
+            this.clnRungeKutta.Name = "clnRungeKutta";
+            this.clnRungeKutta.ReadOnly = true;
+            this.clnRungeKutta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnRungeKutta.Width = 114;
+            // 
+            // clnAdams
+            // 
+            this.clnAdams.HeaderText = "м. Адамса";
+            this.clnAdams.Name = "clnAdams";
+            this.clnAdams.ReadOnly = true;
+            this.clnAdams.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnAdams.Width = 77;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(247)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(1105, 608);
+            this.Controls.Add(this.chB_ExactSolGraph);
             this.Controls.Add(this.dGV_Results);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
@@ -832,6 +860,10 @@
         private System.Windows.Forms.NumericUpDown nUD_CountPartition;
         private System.Windows.Forms.Label lbl_Eps;
         private System.Windows.Forms.TextBox txB_Eps;
+        private System.Windows.Forms.CheckBox chB_AutoStep;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.CheckBox chB_ExactSolGraph;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnX;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnExactSol;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEuler;
@@ -839,9 +871,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEulerWithCorrection;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnRungeKutta;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnAdams;
-        private System.Windows.Forms.CheckBox chB_AutoStep;
-        private System.Windows.Forms.Button btnAccept;
-        private System.Windows.Forms.Button btnCancel;
     }
 }
 
