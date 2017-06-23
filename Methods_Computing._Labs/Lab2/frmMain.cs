@@ -346,7 +346,7 @@ namespace Lab2
         }
 
         private void btnSolveSLAE_Click(object sender, EventArgs e)
-        {
+        {            
             Vector resultSolution = null;
             if (rdB_mThreediagonalMatrixAlgorithm.Checked)
                 resultSolution = _currSLAE.GetSolution(SystemOfLinearAlgebraicEquations.MethodsForSolution.ThreediagonalMatrixAlgorithm);

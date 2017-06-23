@@ -10,3 +10,9 @@ F:\УЧЁБА\ДНУ ФПМ\ПМ-14-.. 3 курс\VІ семестр\Метод�
 E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\bin\Debug\Lab1.exe.config
 E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\obj\Debug\Lab1.exe
 E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\obj\Debug\Lab1.pdb
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\bin\Debug\Lab1.exe
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\bin\Debug\Lab1.pdb
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\obj\Debug\Lab1.frmMain.resources
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+E:\Git Local Repo\Методи обчислень\MethodsComputing\Methods_Computing._Labs\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache

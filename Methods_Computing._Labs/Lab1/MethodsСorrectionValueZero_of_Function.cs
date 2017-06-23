@@ -53,7 +53,7 @@ namespace Lab1
 
             set
             {
-                if(value < b)
+                if ((double.IsNaN(b)) || (value < b))
                     a = value;
             }    
         }
@@ -68,7 +68,7 @@ namespace Lab1
             }
             set
             {
-                if (value > a)
+                if ((double.IsNaN(a)) || (value > a))
                     b = value;
             }    
         }
