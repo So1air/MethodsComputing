@@ -168,7 +168,7 @@ namespace Lab2
         }
 
         double res(int i, int n, ref Vector result, ref double[] e, ref double[] m) 
-        {
+        {            
             return (result[i] = (i == n) ?
                                 res_final(n, ref result, ref e, ref m) :
                                 (e[i] = (_f[i] - _a.GetElement(i, i - 1) * e[i - 1]) / (_a.GetElement(i, i) - _a.GetElement(i, i - 1) * m[i - 1])) 

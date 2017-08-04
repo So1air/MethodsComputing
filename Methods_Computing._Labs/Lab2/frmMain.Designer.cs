@@ -115,7 +115,7 @@
             this.rdB_Fill.Location = new System.Drawing.Point(93, 21);
             this.rdB_Fill.Name = "rdB_Fill";
             this.rdB_Fill.Size = new System.Drawing.Size(126, 17);
-            this.rdB_Fill.TabIndex = 1;
+            this.rdB_Fill.TabIndex = 8;
             this.rdB_Fill.TabStop = true;
             this.rdB_Fill.Text = "за шириною таблиці";
             this.rdB_Fill.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             this.rdB_AllCells.Location = new System.Drawing.Point(6, 21);
             this.rdB_AllCells.Name = "rdB_AllCells";
             this.rdB_AllCells.Size = new System.Drawing.Size(81, 17);
-            this.rdB_AllCells.TabIndex = 0;
+            this.rdB_AllCells.TabIndex = 7;
             this.rdB_AllCells.Text = "за вмістом";
             this.rdB_AllCells.UseVisualStyleBackColor = true;
             this.rdB_AllCells.CheckedChanged += new System.EventHandler(this.rdB_AutoFormatWidthColumns_CheckedChanged);
@@ -137,7 +137,7 @@
             this.txB_NameNewSystem.Location = new System.Drawing.Point(10, 16);
             this.txB_NameNewSystem.Name = "txB_NameNewSystem";
             this.txB_NameNewSystem.Size = new System.Drawing.Size(439, 20);
-            this.txB_NameNewSystem.TabIndex = 12;
+            this.txB_NameNewSystem.TabIndex = 1;
             this.txB_NameNewSystem.Visible = false;
             this.txB_NameNewSystem.WordWrap = false;
             // 
@@ -148,7 +148,7 @@
             this.btnCancel.Location = new System.Drawing.Point(675, 29);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(220, 23);
-            this.btnCancel.TabIndex = 11;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Скасувати";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Visible = false;
@@ -161,7 +161,7 @@
             this.btnAccept.Location = new System.Drawing.Point(675, 8);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(220, 23);
-            this.btnAccept.TabIndex = 10;
+            this.btnAccept.TabIndex = 4;
             this.btnAccept.Text = "Підтвердити";
             this.btnAccept.UseVisualStyleBackColor = false;
             this.btnAccept.Visible = false;
@@ -240,7 +240,7 @@
             this.btnChangeSLAE.Location = new System.Drawing.Point(455, 29);
             this.btnChangeSLAE.Name = "btnChangeSLAE";
             this.btnChangeSLAE.Size = new System.Drawing.Size(220, 23);
-            this.btnChangeSLAE.TabIndex = 5;
+            this.btnChangeSLAE.TabIndex = 3;
             this.btnChangeSLAE.Text = "Змінити";
             this.btnChangeSLAE.UseVisualStyleBackColor = false;
             this.btnChangeSLAE.Click += new System.EventHandler(this.btnChangeSLAE_Click);
@@ -261,7 +261,7 @@
             this.btnAddSLAE.Location = new System.Drawing.Point(455, 8);
             this.btnAddSLAE.Name = "btnAddSLAE";
             this.btnAddSLAE.Size = new System.Drawing.Size(220, 23);
-            this.btnAddSLAE.TabIndex = 3;
+            this.btnAddSLAE.TabIndex = 2;
             this.btnAddSLAE.Text = "Додати";
             this.btnAddSLAE.UseVisualStyleBackColor = false;
             this.btnAddSLAE.Click += new System.EventHandler(this.btnAddSLAE_Click);
@@ -294,12 +294,13 @@
             this.dGV_ConstantTermsOfSLAE.DefaultCellStyle = dataGridViewCellStyle1;
             this.dGV_ConstantTermsOfSLAE.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dGV_ConstantTermsOfSLAE.Location = new System.Drawing.Point(769, 99);
-            this.dGV_ConstantTermsOfSLAE.MultiSelect = false;
             this.dGV_ConstantTermsOfSLAE.Name = "dGV_ConstantTermsOfSLAE";
+            this.dGV_ConstantTermsOfSLAE.ReadOnly = true;
             this.dGV_ConstantTermsOfSLAE.RowHeadersVisible = false;
             this.dGV_ConstantTermsOfSLAE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dGV_ConstantTermsOfSLAE.Size = new System.Drawing.Size(99, 245);
-            this.dGV_ConstantTermsOfSLAE.TabIndex = 2;
+            this.dGV_ConstantTermsOfSLAE.StandardTab = true;
+            this.dGV_ConstantTermsOfSLAE.TabIndex = 10;
             this.dGV_ConstantTermsOfSLAE.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_ConstantTermsOfSLAE_CellEnter);
             this.dGV_ConstantTermsOfSLAE.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_ConstantTermsOfSLAE_CellValidated);
             this.dGV_ConstantTermsOfSLAE.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dGV_Sync_Scroll);
@@ -309,6 +310,7 @@
             this.f.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.f.HeaderText = "f";
             this.f.Name = "f";
+            this.f.ReadOnly = true;
             // 
             // dGV_MatrixOfSLAE
             // 
@@ -336,12 +338,13 @@
             this.dGV_MatrixOfSLAE.DefaultCellStyle = dataGridViewCellStyle2;
             this.dGV_MatrixOfSLAE.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dGV_MatrixOfSLAE.Location = new System.Drawing.Point(10, 99);
-            this.dGV_MatrixOfSLAE.MultiSelect = false;
             this.dGV_MatrixOfSLAE.Name = "dGV_MatrixOfSLAE";
+            this.dGV_MatrixOfSLAE.ReadOnly = true;
             this.dGV_MatrixOfSLAE.RowHeadersVisible = false;
             this.dGV_MatrixOfSLAE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dGV_MatrixOfSLAE.Size = new System.Drawing.Size(753, 245);
-            this.dGV_MatrixOfSLAE.TabIndex = 1;
+            this.dGV_MatrixOfSLAE.StandardTab = true;
+            this.dGV_MatrixOfSLAE.TabIndex = 9;
             this.dGV_MatrixOfSLAE.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_MatrixOfSLAE_CellEnter);
             this.dGV_MatrixOfSLAE.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_MatrixOfSLAE_CellValidated);
             this.dGV_MatrixOfSLAE.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dGV_Sync_Scroll);
@@ -380,11 +383,13 @@
             this.ltB_InfoAboutSolution.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ltB_InfoAboutSolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ltB_InfoAboutSolution.FormattingEnabled = true;
+            this.ltB_InfoAboutSolution.ItemHeight = 20;
             this.ltB_InfoAboutSolution.Location = new System.Drawing.Point(13, 26);
             this.ltB_InfoAboutSolution.Name = "ltB_InfoAboutSolution";
-            this.ltB_InfoAboutSolution.Size = new System.Drawing.Size(363, 121);
-            this.ltB_InfoAboutSolution.TabIndex = 1;
+            this.ltB_InfoAboutSolution.Size = new System.Drawing.Size(363, 104);
+            this.ltB_InfoAboutSolution.TabIndex = 17;
             // 
             // lblInfoAboutSolution
             // 
@@ -411,7 +416,7 @@
             this.txB_СorrectnessOfIterMethods.Location = new System.Drawing.Point(286, 61);
             this.txB_СorrectnessOfIterMethods.Name = "txB_СorrectnessOfIterMethods";
             this.txB_СorrectnessOfIterMethods.Size = new System.Drawing.Size(200, 20);
-            this.txB_СorrectnessOfIterMethods.TabIndex = 2;
+            this.txB_СorrectnessOfIterMethods.TabIndex = 16;
             this.txB_СorrectnessOfIterMethods.Text = "0,00001";
             this.txB_СorrectnessOfIterMethods.Visible = false;
             this.txB_СorrectnessOfIterMethods.Leave += new System.EventHandler(this.txB_СorrectnessOfIterMethods_Leave);
@@ -421,7 +426,7 @@
             this.btnSolveSLAE.Location = new System.Drawing.Point(286, 146);
             this.btnSolveSLAE.Name = "btnSolveSLAE";
             this.btnSolveSLAE.Size = new System.Drawing.Size(200, 23);
-            this.btnSolveSLAE.TabIndex = 1;
+            this.btnSolveSLAE.TabIndex = 0;
             this.btnSolveSLAE.Text = "Розв\'язати";
             this.btnSolveSLAE.UseVisualStyleBackColor = true;
             this.btnSolveSLAE.Click += new System.EventHandler(this.btnSolveSLAE_Click);
@@ -449,7 +454,7 @@
             this.rdB_mSeidelMethod.Name = "rdB_mSeidelMethod";
             this.rdB_mSeidelMethod.Padding = new System.Windows.Forms.Padding(2);
             this.rdB_mSeidelMethod.Size = new System.Drawing.Size(271, 21);
-            this.rdB_mSeidelMethod.TabIndex = 4;
+            this.rdB_mSeidelMethod.TabIndex = 15;
             this.rdB_mSeidelMethod.Text = "метод Зейделя";
             this.rdB_mSeidelMethod.UseVisualStyleBackColor = true;
             this.rdB_mSeidelMethod.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
@@ -462,7 +467,7 @@
             this.rdB_mMethodOfSuccessiveIteration.Name = "rdB_mMethodOfSuccessiveIteration";
             this.rdB_mMethodOfSuccessiveIteration.Padding = new System.Windows.Forms.Padding(2);
             this.rdB_mMethodOfSuccessiveIteration.Size = new System.Drawing.Size(271, 21);
-            this.rdB_mMethodOfSuccessiveIteration.TabIndex = 3;
+            this.rdB_mMethodOfSuccessiveIteration.TabIndex = 14;
             this.rdB_mMethodOfSuccessiveIteration.Text = "метод простої ітерації";
             this.rdB_mMethodOfSuccessiveIteration.UseVisualStyleBackColor = true;
             this.rdB_mMethodOfSuccessiveIteration.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
@@ -475,7 +480,7 @@
             this.rdB_mMethodOfGaussianElimination.Name = "rdB_mMethodOfGaussianElimination";
             this.rdB_mMethodOfGaussianElimination.Padding = new System.Windows.Forms.Padding(2);
             this.rdB_mMethodOfGaussianElimination.Size = new System.Drawing.Size(271, 21);
-            this.rdB_mMethodOfGaussianElimination.TabIndex = 2;
+            this.rdB_mMethodOfGaussianElimination.TabIndex = 13;
             this.rdB_mMethodOfGaussianElimination.Text = "метод Гауса(послідовного виключення змінних)";
             this.rdB_mMethodOfGaussianElimination.UseVisualStyleBackColor = true;
             this.rdB_mMethodOfGaussianElimination.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
@@ -488,7 +493,7 @@
             this.rdB_mSquare_RootMethod.Name = "rdB_mSquare_RootMethod";
             this.rdB_mSquare_RootMethod.Padding = new System.Windows.Forms.Padding(2);
             this.rdB_mSquare_RootMethod.Size = new System.Drawing.Size(271, 21);
-            this.rdB_mSquare_RootMethod.TabIndex = 1;
+            this.rdB_mSquare_RootMethod.TabIndex = 12;
             this.rdB_mSquare_RootMethod.Text = "метод квадратного кореня";
             this.rdB_mSquare_RootMethod.UseVisualStyleBackColor = true;
             this.rdB_mSquare_RootMethod.CheckedChanged += new System.EventHandler(this.rdB_SelectionMethod_CheckedChanged);
@@ -502,7 +507,7 @@
             this.rdB_mThreediagonalMatrixAlgorithm.Name = "rdB_mThreediagonalMatrixAlgorithm";
             this.rdB_mThreediagonalMatrixAlgorithm.Padding = new System.Windows.Forms.Padding(2);
             this.rdB_mThreediagonalMatrixAlgorithm.Size = new System.Drawing.Size(271, 21);
-            this.rdB_mThreediagonalMatrixAlgorithm.TabIndex = 0;
+            this.rdB_mThreediagonalMatrixAlgorithm.TabIndex = 11;
             this.rdB_mThreediagonalMatrixAlgorithm.TabStop = true;
             this.rdB_mThreediagonalMatrixAlgorithm.Text = "метод прогонки";
             this.rdB_mThreediagonalMatrixAlgorithm.UseVisualStyleBackColor = true;

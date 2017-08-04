@@ -439,6 +439,20 @@ namespace Lab2
             return res;
         }
 
+        /// <summary>
+        /// Норма согласованная с третьей(сферической, или эвклидовой) нормой вектора, но не подчинённая ей
+        /// </summary>
+        public double Norm
+        {
+            get
+            {
+                double result = 0;
+                foreach (double x in _matrixElements)
+                    result += x * x;
+                return Math.Sqrt(result);
+            }
+        }
+        
         public Matrix2D Copy()
         {
             return new Matrix2D(this._matrixElements);

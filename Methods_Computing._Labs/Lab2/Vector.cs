@@ -125,6 +125,9 @@ namespace Lab2
             }
         }
 
+        /// <summary>
+        /// Третя(сферична, або евклідова) норма.
+        /// </summary>
         public double Norm
         {
             get

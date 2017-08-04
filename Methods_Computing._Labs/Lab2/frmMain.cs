@@ -17,7 +17,6 @@ namespace Lab2
         Dictionary<string, SystemOfLinearAlgebraicEquations> _SLAEs = new Dictionary<string, SystemOfLinearAlgebraicEquations>();
         SystemOfLinearAlgebraicEquations _currSLAE;
 
-        string oldTextCell = "";
         Option _optionOfEditor;
 
         public frmMain()
@@ -109,38 +108,41 @@ namespace Lab2
 
         private void dGV_MatrixOfSLAE_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                oldTextCell = dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            else
-                oldTextCell = "";
+            if (!dGV_MatrixOfSLAE.ReadOnly)
+                dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (e.RowIndex < _currSLAE.A.RowCount && e.ColumnIndex < _currSLAE.A.ColCount) ? _currSLAE.A.GetElement(e.RowIndex, e.ColumnIndex) : 0;
         }
 
         private void dGV_MatrixOfSLAE_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-            double realValue;
-            if (dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                if (double.TryParse(dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out realValue))                
+            if (!dGV_MatrixOfSLAE.ReadOnly)
+            {
+                double realValue;
+                if (dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    if (!double.TryParse(dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out realValue))
+                        realValue = (e.RowIndex < _currSLAE.A.RowCount && e.ColumnIndex < _currSLAE.A.ColCount) ? _currSLAE.A.GetElement(e.RowIndex, e.ColumnIndex) : 0;
                     dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = ((e.ColumnIndex == 0) ? (e.RowIndex + 1 + ") ") : ((realValue < 0) ? "" : "+")) + realValue + "*x" + NumberToLowIndex(e.ColumnIndex + 1);
-                else
-                    dGV_MatrixOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldTextCell;
+                }
+            }
         }
 
         private void dGV_ConstantTermsOfSLAE_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                oldTextCell = dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            else
-                oldTextCell = "";
+            if (! dGV_ConstantTermsOfSLAE.ReadOnly)
+                dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (e.RowIndex < _currSLAE.F.Length) ? _currSLAE.F[e.RowIndex] : 0;
         }
 
         private void dGV_ConstantTermsOfSLAE_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-            double realValue;
-            if (dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                if (double.TryParse(dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out realValue))
-                    dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = " = " + realValue;
-                else
-                    dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldTextCell;
+            if (!dGV_ConstantTermsOfSLAE.ReadOnly)
+            {
+                double realValue;
+                if (dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    if (double.TryParse(dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out realValue))
+                        dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = " = " + realValue;
+                    else
+                        dGV_ConstantTermsOfSLAE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = " = " + ((e.RowIndex < _currSLAE.F.Length) ? _currSLAE.F[e.RowIndex] : 0);
+            }
         }
 
         private void dGV_Sync_Scroll(object sender, ScrollEventArgs e)
@@ -275,7 +277,7 @@ namespace Lab2
             btnAddSLAE.Visible = true;
             btnChangeSLAE.Visible = true;
 
-            cmB_ListSLAEs.SelectedIndex = cmB_ListSLAEs.SelectedIndex;
+            cmB_ListSLAEs_SelectedIndexChanged(cmB_ListSLAEs, new EventArgs());
         }
 
         private SystemOfLinearAlgebraicEquations ReadSLAE_FromDGV()
@@ -297,7 +299,6 @@ namespace Lab2
                 if ((dGV_ConstantTermsOfSLAE.Rows[i].Cells[0].Value != null) && (dGV_ConstantTermsOfSLAE.Rows[i].Cells[0].Value.ToString() != ""))
                     constantTermsNewSystem[i] = double.Parse(dGV_ConstantTermsOfSLAE.Rows[i].Cells[0].Value.ToString().Substring(3));
             }
-            //this._SLAEs.Add(txB_NameNewSystem.Text, SystemOfLinearAlgebraicEquations.CreateSystem(Matrix2D.CreateMatrix(matrixNewSystem), Vector.CreateVector(constantTermsNewSystem)));
             return SystemOfLinearAlgebraicEquations.CreateSystem(Matrix2D.CreateMatrix(matrixNewSystem), Vector.CreateVector(constantTermsNewSystem));
         }
 
@@ -372,11 +373,11 @@ namespace Lab2
                 if (!double.IsNaN(resultSolution[0]))
                 {
                     for (int i = 0; i < resultSolution.Length; i++)
-                        ltB_InfoAboutSolution.Items.Add("x" + NumberToLowIndex(i) + " = " + resultSolution[i] + ";");
+                        ltB_InfoAboutSolution.Items.Add("x" + NumberToLowIndex(i + 1) + " = " + resultSolution[i] + ";");
 
                     Vector teta = _currSLAE.A * resultSolution + (-_currSLAE.F);
                     for (int i = 0; i < teta.Length; i++)
-                        ltB_InfoAboutSolution.Items[i] += "     θ" + NumberToLowIndex(i) + " = " + teta[i] + ";";
+                        ltB_InfoAboutSolution.Items[i] += "     θ" + NumberToLowIndex(i + 1) + " = " + teta[i] + ";";
                 }
                 else
                     ltB_InfoAboutSolution.Items.Add("Даним методом не вдається розв'язати задану систему.");
