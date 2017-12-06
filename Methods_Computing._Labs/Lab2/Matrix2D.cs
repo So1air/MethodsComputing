@@ -117,7 +117,7 @@ namespace Lab2
             Matrix2D result = new Matrix2D((ushort)m.RowCount, (ushort)m.ColCount);
             for (int i = 0; i < result.RowCount; i++)
                 for (int j = 0; j < result.ColCount; j++)
-                    result._matrixElements[i, j] *= alfa;
+                    result._matrixElements[i, j] = m._matrixElements[i, j] * alfa;
             return result;
         }
 
@@ -126,9 +126,9 @@ namespace Lab2
             return alfa * m;
         }
 
-        public static Matrix2D operator *(Matrix2D m, Vector v)
+        public static Matrix2D operator *(Matrix2D m, Vector v) //?
         {
-            if (m.ColCount == v.Length)
+            if (m.ColCount == v.Length) //?
             {
                 Matrix2D result = new Matrix2D(m.RowCount, 1);
                 for (int i = 0; i < result.RowCount; i++)
@@ -141,9 +141,9 @@ namespace Lab2
                 return null;
         }
 
-        public static Matrix2D operator *(Vector v, Matrix2D m)
+        public static Matrix2D operator *(Vector v, Matrix2D m) //?
         {
-            if (v.Length == m.RowCount)
+            if (v.Length == m.RowCount) //?
             {
                 Matrix2D result = new Matrix2D(1, m.ColCount);
                 for (int j = 0; j < result.ColCount; j++)
@@ -153,7 +153,7 @@ namespace Lab2
                 return result;
             }
             else
-                return null;
+                return null; 
         }
 
         public static Matrix2D operator *(Matrix2D leftMatrix, Matrix2D rightMatrix)
@@ -315,6 +315,13 @@ namespace Lab2
                 return true;
             }
         }
+        public double AlgebraicalComplement(int row, int col)
+        {
+            if ((row >= 0) && (row < this.RowCount) && (col >= 0) && (col < this.ColCount))
+                return (((row + col) % 2 == 1) ? -1 : 1) * CalcDeterminant(ExpurgationColumnAndRow(this._matrixElements, row, col));
+            else
+                return double.NaN;
+        }
 
         public double ValueOfDeterminant
         {
@@ -326,6 +333,8 @@ namespace Lab2
                     return double.NaN;
             }
         }
+
+        
 
         private double CalcDeterminant(double[,] matrix)
         {
@@ -350,17 +359,10 @@ namespace Lab2
         private double[,] ExpurgationColumnAndRow(double[,] matrix, int row, int col)
         {
             double[,] new_matrix = new double[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
-            int flag_row = 0, flag_col = 0;
-            for (int i = 0; i < new_matrix.GetLength(0); i++)
-                for (int j = 0; j < new_matrix.GetLength(1); j++)
-                {
-                    if (i == row)
-                        flag_row = 1;
-                    if (j == col)
-                        flag_col = 1;
-
-                    new_matrix[i, j] = matrix[i + flag_row, j + flag_col];
-                }
+            for (int i = 0; i < new_matrix.GetLength(0); i++)                            
+                for (int j = 0; j < new_matrix.GetLength(1); j++)                
+                    new_matrix[i, j] = matrix[i + ((i < row) ? 0 : 1), j + ((j < col) ? 0 : 1)];                
+            
             return new_matrix;
         }
 
@@ -450,6 +452,21 @@ namespace Lab2
                 foreach (double x in _matrixElements)
                     result += x * x;
                 return Math.Sqrt(result);
+            }
+        }
+
+        public double Trace
+        {
+            get
+            {
+                if (this.ColCount != this.RowCount)
+                    return double.NaN;
+
+                double result = 0;
+                for (int i = 0, N = this.RowCount; i < N; i++)
+                    result += _matrixElements[i, i];
+
+                return result;
             }
         }
         
